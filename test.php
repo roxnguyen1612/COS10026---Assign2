@@ -13,6 +13,8 @@ while ($i < count($ques)) {
                 echo $value;
                 $score += 0.5;
             };
+            haha
+            
         };
     } elseif (isset($_POST["$ques[$i]"])) {
         $ans = $_POST["$ques[$i]"]; //this is the answer
