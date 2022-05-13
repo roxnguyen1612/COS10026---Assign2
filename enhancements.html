@@ -1,0 +1,238 @@
+  <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Group Assignment 1 - index.html"/>
+    <meta name="keywords" content="HTML, CSS"/>
+    <meta name="author" content="webify_group"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Enhancements</title>
+</head>
+
+<body>
+    <section id="eheader">
+        <nav>
+            <a href="index.php"><img src="Images/logo.png" alt="Webify logo"></a>
+            <div class="nav-links">
+            <ul>
+                <li><a href="topic.php">TOPIC</a></li>
+                <li><a href="quiz.php">QUIZ</a></li>
+                <li id="selected"><a href="enhancements.html">ENHANCEMENTS</a></li>
+            </ul>
+            </div>
+        </nav>
+    </section>
+
+    <section id="big-text">
+        <div class="big-text econtainer"></div>
+            <div>
+                <h1>Enhancements <span></span></h1>
+                <h2>How we go beyond the requirements <span></span></h2>
+            </div>
+    </section>
+<!-- Enhancement1 -->
+    <section id="enhancement1">
+      <div class="enhancement1 econtainer">
+        <div class="enhancement1-top">
+          <h1 class="section-title">Web design <span>improvements</span></h1>
+          <p> Responsive design is about making the website responds to different screen sizes or viewports. </p>
+        </div>
+      </div>
+          
+        <div class="enhancement1-bottom">
+          <div class="enhancement1-items">
+            <div class="icon"><img src="Images/icon1.png" alt="Logo"/></div>
+              <h2>Implementation:</h2>
+                <ul>
+                  <li id="w">Meta tags: &lt;meta name="viewport" content="width=device-width, initial-scale=1.0":&gt;:</li>
+                  <li>This will set the viewport for the web page, which will give the browser instructions on how to control the page’s dimensions and scaling</li>
+                </ul>  
+                <h2>Media queries:</h2>
+                <ul>
+                  <li>defines different styles for different browser sizes. In our index.html, we used media queries for different sizes:
+                  <li>@media (max-width: 572px): When the device’s screen width fall below 572px, it will apply the CSS inside the media query</li>
+                  <li>@media (min-width: 800px): When the device’s screen width go beyond 800px, it will apply the CSS inside the media query.</li>
+                </ul>
+            </div>
+          
+      
+        <div class="enhancement1-items">
+          <div class="icon"><img src="Images/icon1.png" alt="icon1"/></div>
+            <h2>Text reveal animation:</h2>
+            <ul>
+              <li>keyframes rule(@keyframes): </li>
+              <li>specifies the animation code.</li>
+              <li>specify when the style change will happen in percent	 </li>
+              <li>animation:  bring an animation to a div element </li>
+            </ul>
+          </div>
+      
+        <div class="enhancement1-items">
+          <div class="icon"><img src="Images/icon1.png" alt="Logo"/></div>
+            <h2>In order to improve the web design when the screen width is smaller, we have implemented:</h2>
+              <ul>
+                  <li>Changes to the text font sizes so that it’s more readable.</li>
+                  <li>Change the background when the screen width fall below 572px</li>
+                  <li>Replace the page links with a hamburger menu button.
+                  <li>Since the assignment doesn’t allow JavaScript, we used the checkbox instead, so that when it’s checked, the screen will display a menu that contains all the links to other html pages.</li>
+              </ul>      
+        </div>
+
+        <div class="enhancement1-items">
+          <div class="icon"><img src="Images/icon1.png" alt="Logo"/></div>
+            <h2>Several CSS properties that goes beyond the basic requirements that we used for the hamburger menu:</h2>
+            <ul>
+                <li>z-index: specifies the stack order of an element. If the stack order of an element is higher than the others, it will be in front of others.
+                <li>transform: applies a 2D or 3D transformation to an element.</li>
+                <li>border-radius: allow us to add rounded corners to elements.</li>
+                <li>CSS selector “~” (element1 ~ element2): Selects every “element1” that is preceded by an “element2” element.</li>
+            </ul>
+        </div>
+        </div>
+
+    </section>
+<!-- Enhancement2 -->
+    <section id="enhancement2">
+        <div class="enhancement2 econtainer">
+            <div class="enhancement2-top">
+                <h1 class="section-title"><span>Bootstrap5</span> implementation</h1>
+                <p>To improve the web design, we have used the Bootstrap framework. We used Bootstrap 5 since it is compatible with all modern browsers (Chrome, Firefox, Safari, etc…) and relatively easy to use.<br><br>
+We have included Bootstrap 5 from a CDN:</p>
+                <p id="code">
+                    &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"&gt;<br>
+                    &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script&gt;
+                </p>
+              
+            <p>This is the list of our bootstrap implementation:</p><br><br>
+            </div>
+            <div class="all-contents">
+                <div class="enhancement2-items">
+                    <div class="enhancement2-info">
+                        <h2>Checks/radio bootstrap buttons: </h2>
+            <ul>
+                <li>Uses a wrapper element with class=”form-check” to ensure proper margins for labels and checkboxes.</li>
+                <li>Add the .form-check-label class to label elements</li>
+                <li>Add the .form-check-input  to style checkboxes.</li>
+            </ul>                    </div>
+                    <div class="enhancement2-img">
+                        <img src="Images/img-1.png" alt="img"/>
+                    </div>
+                </div>
+                <div class="enhancement2-items">
+                    <div class="enhancement2-info">
+                        <h2>Submit/reset bootstrap buttons</h2>
+                        <ul>
+                          <li>By using bootstraps custom button styles, it allows for consistent styling with the rest of the form.</li>
+                          <li>The “btn-success” class is used for the submit button.</li>
+                          <li>The reset button is less important and so the “btn-secondary” class is used.</li>
+                        </ul>
+                    </div>
+                    <div class="enhancement2-img">
+                        <img src="Images/img-1.png" alt="img"/>
+                    </div>
+                </div>
+                <div class="enhancement2-items">
+                    <div class="enhancement2-info">
+                        <h2>Floating labels for the text input fields:</h2> <h3>Making the labels float/animate when you click on the input field:</h3>
+               <ul><li>We have implemented it for input fields, textareas, select menus.</li></ul>
+
+                    
+                    </div>
+                    <div class="enhancement2-img">
+                        <img src="Images/img-1.png" alt="img"/>
+                    </div>
+                </div>
+                <div class="enhancement2-items">
+                    <div class="enhancement2-info">
+                        <h2>Form-control class for proper styling:</h2>
+                        <ul>
+                <li>The “form-control” class give input/textarea elements custom styling, sizing and focus states.</li>
+                <li>Allows for consistent styling across the webpage.</li>
+            </ul>
+        </li>
+                    </div>
+                    <div class="enhancement2-img">
+                        <img src="Images/img-1.png" alt="img"/>
+                    </div>
+                </div>
+                <div class="enhancement2-items">
+                    <div class="enhancement2-info">
+                        <h2>Bootstrap style validation:</h2>
+                                  <ul>
+                <li>The “was-validated” class is applied to the form element. This allows the use of bootstraps custom style validation messages on input elements within the form.</li>
+                <li>For custom validation messages, div elements with the “invalid-feedback” class applied to them, are placed under input, select and textarea elements.</li>
+            </ul>
+                    </div>
+                    <div class="enhancement2-img">
+                        <img src="Images/img-1.png" alt="img"/>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+    </section>
+    <div id="ref">
+      <h2 id="hd">Reference:</h2>
+      <ol>
+        <li>GetBootstrap, <em>Buttons</em>, viewed 24 Mar 2022, <a href="https://getbootstrap.com/docs/5.0/components/buttons/">https://getbootstrap.com/docs/5.0/components/buttons/</a></li>
+        <li>W3schools, <em>CSS Selector Reference</em>, viewed 24 Mar 2022, <a href="https://www.w3schools.com/cssref/css_selectors.asp">https://www.w3schools.com/cssref/css_selectors.asp</a></li>
+        <li>W3schools, <em>HTML Responsive Web Design</em>, viewed 28 Mar 2022, <a href="https://www.w3schools.com/html/html_responsive.asp">https://www.w3schools.com/html/html_responsive.asp</a></li>
+        <li>W3schools, <em>Bootstrap 5 Get Started</em>, viewed 28 Mar 2022, <a href="https://www.w3schools.com/bootstrap5/bootstrap_get_started.php">https://www.w3schools.com/bootstrap5/bootstrap_get_started.php</a></li>
+        <li>GetBootstrap, <em>Form controls</em>, viewed 1 Apr 2022, <a href="https://getbootstrap.com/docs/5.1/forms/form-control/">https://getbootstrap.com/docs/5.1/forms/form-control/</a></li>
+        <li>GetBootstrap, <em>Validation</em>, viewed 1 Apr 2022, <a href="https://getbootstrap.com/docs/5.1/forms/validation/">https://getbootstrap.com/docs/5.1/forms/validation/</a></li>
+      </ol>
+    </div>
+    <div id="tut">
+      <h2 id="hd">Tutorials/ sources for our techniques:</h2>
+      <ol>
+        <li>WEB CIFAR, 25 Mar 2020, <em>One Page Full Website Project For Practice | HTML & CSS Responsive Website</em>, available from: 
+<a href="https://www.youtube.com/watch?v=ZFQkb26UD1Y&t=1943s">https://www.youtube.com/watch?v=ZFQkb26UD1Y&t=1943s</a></li>
+        <li>Easy Tutorials, 16 Mar 2021, <em>How To Make Website Using HTML & CSS | Full Responsive Multi Page Website Design Step by Step</em>, available from:
+<a href="https://www.youtube.com/watch?v=oYRda7UtuhA&t=122s">https://www.youtube.com/watch?v=oYRda7UtuhA&t=122s</a></li>
+        <li>The WebShala, 13 Dec 2020, <em>Responsive Footer Design using Html & Css</em>
+, available from: <a href="https://www.youtube.com/watch?v=YOb67OKw62s">https://www.youtube.com/watch?v=YOb67OKw62s</a></li>
+      </ol>
+    </div>
+    <footer>
+        <div class="container">
+          <div class="row">
+            <div class="footer-col">
+              <h4>Our Group Members</h4>
+              <ul>
+                <li>
+                  <a href="mailto:103500095@student.swin.edu.au"
+                    >103500095 - Rox Nguyen</a
+                  >
+                </li>
+                <li>
+                  <a href="mailto:103792850@student.swin.edu.au"
+                    >103752850 - Kim Duong Pham</a
+                  >
+                </li>
+                <li>
+                  <a href="mailto:103848151@student.swin.edu.au"
+                    >103848151 - William Chan</a
+                  >
+                </li>
+                <li>
+                  <a href="mailto:103844094@student.swin.edu.au"
+                    >103844094 - Tashahud</a
+                  >
+                </li>
+                <li>
+                  <a href="mailto:100583828@student.swin.edu.au"
+                    >100583828 - Giovanni Tripodi</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+</body>
+</html>
