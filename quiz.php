@@ -23,22 +23,22 @@
         <h2>Student Details</h2>
       </legend>
       <div class="form-floating mt-3 mb-3">
-        <input type="text" class="form-control" id="studentid" placeholder="Student ID" name="studentid" maxlength="10" minlength="7" required="required" pattern="[0-9]+" />
+        <input type="text" class="form-control" id="studentid" placeholder="Student ID" name="studentId" maxlength="10" minlength="7" required="required" pattern="[0-9]+" />
         <label for="studentid">Student ID</label>
         <div class="invalid-feedback">Please fill out.</div>
       </div>
       <div class="form-floating mt-3 mb-3">
-        <input type="text" name="givenName" id="givenName" maxlength="30" required="required" pattern="^[a-zA-Z -]{1,30}$" placeholder="Given Name" class="form-control" />
+        <input type="text" name="fname" id="givenName" maxlength="30" required="required" pattern="^[a-zA-Z -]{1,30}$" placeholder="Given Name" class="form-control" />
         <label for="givenName">Given Name</label>
         <div class="invalid-feedback">Please fill out.</div>
       </div>
       <div class="form-floating mt-3 mb-3">
-        <input type="text" name="familyName" class="form-control" id="familyName" maxlength="30" required="required" pattern="^[a-zA-Z -]{1,30}$" placeholder="Family Name" />
+        <input type="text" name="lname" class="form-control" id="familyName" maxlength="30" required="required" pattern="^[a-zA-Z -]{1,30}$" placeholder="Family Name" />
         <label for="familyName">Family Name</label>
         <div class="invalid-feedback">Please fill out.</div>
       </div>
       <div class="form-floating mt-3 mb-3">
-        <input type="text" name="date-of-birth" id="date" pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$" required="required" class="form-control" placeholder="dd/mm/yyyy" />
+        <input type="text" name="dob" id="date" pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$" required="required" class="form-control" placeholder="dd/mm/yyyy" />
         <label for="date">Date of Birth</label>
         <div class="invalid-feedback">Please fill out. (DD/MM/YYYY)</div>
       </div>
@@ -207,7 +207,7 @@
         <p class="question_text">
           Which audio file format is most common for streaming?
         </p>
-        <textarea placeholder="Write your answer here..." id="q7" name="question07" value="OGG" rows="4" cols="40" class="form-control" required="required"></textarea>
+        <textarea placeholder="Write your answer here..." id="q7" name="question07" value="" rows="4" cols="40" class="form-control" required="required"></textarea>
         <div class="invalid-feedback">Please fill out.</div>
       </div>
       <img src="/Images/audiofileformat.png" class="audio" alt="Audio File Format" />

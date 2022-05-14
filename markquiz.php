@@ -1,6 +1,12 @@
 <?php
 include_once("config.php");
 
+//Store student information
+if (isset($_POST["studentId"])) {$studentId = $_POST["studentId"];};
+if (isset($_POST["fname"])) {$fname = $_POST["fname"];};
+if (isset($_POST["lname"])) {$lname = $_POST["lname"];};
+if (isset($_POST["dob"])) {$dob = $_POST["dob"];};
+
 // Marking function
 $score = 0;
 $i = 0;
@@ -8,9 +14,9 @@ $ques = ["question01", "question02", "question03", "question04", "question05", "
 
 while ($i < count($ques)) {
     if ($ques[$i] == "question05") {
-        if (!empty($_POST['question05'])) {
+        if (!empty($_POST["question05"])) {
             $ans = [];
-            foreach ($_POST['question05'] as $value) { // checkbox's name needs to + [] first before using this method
+            foreach ($_POST["question05"] as $value) { // checkbox's name needs to + [] first before using this method
                 array_push($ans, $value);
             };
         };
@@ -40,6 +46,7 @@ while ($i < count($ques)) {
         $i += 1;
     };
 };
+
 ?>
 
 <!DOCTYPE html>
