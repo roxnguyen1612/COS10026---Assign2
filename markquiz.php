@@ -1,63 +1,43 @@
 <?php
-// problem with sql, include later
-// post get name but we can compare the value
+include_once("config.php");
+
+// Marking function
 $score = 0;
+$i = 0;
+$ques = ["question01", "question02", "question03", "question04", "question05", "question06", "question07", "question08"]; // this is the col
 
-if (isset($_POST["question01"])) {
-    $question01 = $_POST["question01"];
-    if ($question01 == "1991") {
-        $score += 1;
-    };
-};
-
-if (isset($_POST["question02"])) {
-    $question02 = $_POST["question02"];
-    if ($question02 == "karlheinz") {
-        $score += 1;
-    };
-};
-
-if (isset($_POST["question03"])) {
-    $question03 = $_POST["question03"];
-    if ($question03 == "MPEG") {
-        $score += 1;
-    };
-};
-
-if (isset($_POST["question04"])) {
-    $question04 = $_POST["question04"];
-    if ($question04 == "2MB") {
-        $score += 1;
-    };
-};
-// check-box seems to not working
-if (isset($_POST["question05"])) {
-    $question05 = $_POST["question05"];
-    if ($question05 == "outside" and $question05 == "softer-sound") {
-        $score += 0.5;
-        if ($question05 == "softer-sound") {
-            $score += 0.5;
+while ($i < count($ques)) {
+    if ($ques[$i] == "question05") {
+        if (!empty($_POST['question05'])) {
+            $ans = [];
+            foreach ($_POST['question05'] as $value) { // checkbox's name needs to + [] first before using this method
+                array_push($ans, $value);
+            };
         };
+    } elseif (isset($_POST["$ques[$i]"])) {
+        $ans = $_POST["$ques[$i]"]; //this is the answer
     };
-};
 
-if (isset($_POST["question06"])) {
-    $question06 = $_POST["question06"];
-    if ($question06 == "lossy") {
-        $score += 1;
-    };
-};
-if (isset($_POST["question07"])) {
-    $question07 = $_POST["question07"];
-    if ($question07 == "OGG") {
-        $score += 1;
-    };
-};
-
-if (isset($_POST["question08"])) {
-    $question08 = $_POST["question08"];
-    if ($question08 == "M1L3") {
-        $score += 1;
+    $query = "select * from qA2 where ques = \"$ques[$i]\"";
+    $result = mysqli_query($conn, $query);
+    if (!$result) {
+        echo "<p> class=\"wrong\"> Some thing is wrong with ", $query, "</p>";
+    } else {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $db_array = [];
+            if ($row["ques"] == "question05") {   // remember, this outputs each line
+                array_push($db_array, $row["ans"]);
+                $compare = array_intersect($db_array,$ans);
+                if (count($compare) == 1){
+                    $score += 0.5;
+                };
+            } else {
+                if ($row["ans"] == $ans) {
+                    $score += 1;
+                };
+            };
+        };
+        $i += 1;
     };
 };
 ?>

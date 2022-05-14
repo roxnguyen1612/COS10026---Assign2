@@ -1,5 +1,5 @@
 <?php
-    $server = "mercury.swin.edu.au";
+    $server = "feenix-mariadb.swin.edu.au";
     $user = "s103500095";
     $pwd = "161202";
     $db = "s103500095_db";

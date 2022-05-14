@@ -48,7 +48,7 @@
         <h2>Question 1</h2>
       </legend>
       <div class="form-floating mb-3 mt-3">
-        <input type="text" name="question01" value ="1991" id="question01" minlength="4" maxlength="4" pattern="^\d{4}$" required="required" class="form-control" placeholder="What year was MP3 published?" />
+        <input type="text" name="question01" value ="" id="question01" minlength="4" maxlength="4" pattern="^\d{4}$" required="required" class="form-control" placeholder="What year was MP3 published?" />
         <label for="textQuestion">What year was MP3 published?</label>
         <div class="invalid-feedback">Please fill out.</div>
         <img src="/Images/mp3.png" class="mp3" alt="MP3 Device" />
