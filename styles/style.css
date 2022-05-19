@@ -803,7 +803,7 @@ legend {
 #eheader {
   position: absolute;
   z-index: 1000;
-  width: 193vh;
+  width: 100%;
   height: auto;
 }
 
