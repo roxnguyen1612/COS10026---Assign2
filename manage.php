@@ -23,11 +23,18 @@
       <h2>Management page <span></span></h2>
     </div>
   </section>
-
+  
   <section class="p-5">
     <div class="border m-1 rounded border-dark pb-5">
       <h1 class="p-5">Manager Page</h1>
       <div class="forms">
+        <form action="" class="container">
+          <fieldset class="row g-3 align-items-center border-dark border m-2 rounded-3 p-5">
+            <div class="col-auto">
+              <button type="submit" class="btn btn-primary">List all attempts</button>
+            </div>
+          </fieldset>
+        </form>
         <form action="" class="container">
           <fieldset class="row g-3 align-items-center border-dark border m-2 rounded-3 p-5">
             <div class="col-auto form-floating">
@@ -76,7 +83,6 @@
         <div class="container">
           <div class="row g-3 align-items-center border-dark border m-2 rounded-3 p-5">
             <div class="col-auto">
-              <button type="submit" class="btn btn-primary">List all attempts</button>
               <button type="submit" class="btn btn-success">Students who got 100%</button>
               <button type="submit" class="btn btn-dark">Students who got less than 50%</button>
             </div>
