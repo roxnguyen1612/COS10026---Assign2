@@ -16,10 +16,10 @@
 <?php include_once("inc/quiznav.inc"); ?>
   <section>
     <div class="container py-5">
-      <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="row d-flex justify-content-center align-items-center">
         <div class="col-8">
-          <div class="card rounded">
-            <form action="" method="get" class="card-body text-center p-5 h-100">
+          <div class="card rounded text-center p-5">
+            <form action="" method="get" class="card-body">
 
               <h1 class="mb-5">
                 Login
@@ -36,6 +36,8 @@
               </div>
               <button class="btn btn-primary btn-lg btn-block shadow-sm" type="submit">Login</button>
             </form>
+            <hr>
+            <p>New? Signup <a href="signup.php">Here</a></p>
           </div>
         </div>
       </div>
