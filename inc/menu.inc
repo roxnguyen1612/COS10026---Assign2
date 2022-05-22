@@ -15,6 +15,7 @@
                     <li><a href="topic.php">TOPIC</a></li>
                     <li><a href="quiz.php">QUIZ</a></li>
                     <li><a href="manage.php">MANAGE</a></li>
+                    <li><a href="login.php">LOGIN</a></li>
                     <li><a href="enhancements.html">ENHANCEMENTS 1</a></li>
                     <li><a href="enhancements.php">ENHANCEMENTS 2</a></li>
                   </ul>
