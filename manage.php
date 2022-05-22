@@ -1,3 +1,13 @@
+<?php include_once("session.php"); ?>
+<?php include_once("config.php"); ?>
+
+<!-- For session id, just a note
+$result = mysqli_query($conn, "SELECT * FROM `admin` WHERE username = '$sessionID'"); 
+if ($row = mysqli...){
+Welcome $row["username"]!
+};
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,30 +21,17 @@
   <title>Supervisor Page</title>
 </head>
 
+<!-- 5 func for manage -->
 
 <body>
   <section id="eheader">
     <?php include_once("inc/menu.inc"); ?>
   </section>
 
-  <section id="big-text">
-    <div class="big-text tcontainer">
-      <h1>Supervisor <span></span></h1>
-      <h2>Management page <span></span></h2>
-    </div>
-  </section>
-  
   <section class="p-5">
     <div class="border m-1 rounded border-dark pb-5">
       <h1 class="p-5">Manager Page</h1>
       <div class="forms">
-        <form action="" class="container">
-          <fieldset class="row g-3 align-items-center border-dark border m-2 rounded-3 p-5">
-            <div class="col-auto">
-              <button type="submit" class="btn btn-primary">List all attempts</button>
-            </div>
-          </fieldset>
-        </form>
         <form action="" class="container">
           <fieldset class="row g-3 align-items-center border-dark border m-2 rounded-3 p-5">
             <div class="col-auto form-floating">
@@ -83,6 +80,7 @@
         <div class="container">
           <div class="row g-3 align-items-center border-dark border m-2 rounded-3 p-5">
             <div class="col-auto">
+              <button type="submit" class="btn btn-primary">List all attempts</button>
               <button type="submit" class="btn btn-success">Students who got 100%</button>
               <button type="submit" class="btn btn-dark">Students who got less than 50%</button>
             </div>
@@ -91,6 +89,17 @@
       </div>
     </div>
   </section>
+
+<!-- Note for the logout button - PHP
+if (isset($_POST["name"])){
+  session_start();            -> should I?
+  session_destroy();
+  header ("login.php");
+}
+
+
+-->
+
   <footer>
     <?php include_once("inc/footer.inc"); ?>
   </footer>
