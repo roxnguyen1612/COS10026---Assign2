@@ -1,3 +1,5 @@
+<!-- input disable to check 3-time false submit -->
+
 <?php session_start(); ?>
 <?php include_once("config.php"); ?>
 
