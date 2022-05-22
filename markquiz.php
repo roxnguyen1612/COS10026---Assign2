@@ -46,7 +46,6 @@ while ($i < count($ques)) {
         $i += 1;
     };
 };
-
 ?>
 
 <!DOCTYPE html>
@@ -85,6 +84,12 @@ while ($i < count($ques)) {
             <button type="submit" name="button2" class="btn btn-success m-1" value="Button2">No</button>
         </div>
     </div>
+
+    <!-- 2 btn func + need atmpt 2 ex -->
+    <?php 
+        if (isset($_POST["button2"])) {$stu_que = mysqli_query($conn, "INSERT INTO `attempts` VALUES (null, now(), '$studentId', '$fname', '$lname', 1, $score, '$dob')");};
+    ?>
+
     <?php include_once("inc/footer.inc"); ?>
 </body>
 
