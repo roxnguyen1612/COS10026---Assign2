@@ -205,7 +205,7 @@ while ($i < count($ques)) {
                     <button type="submit" name="button1" class="btn btn-secondary m-1" value="Button1">Yes</button>
                     <button type="submit" name="button2" class="btn btn-success m-1" value="Button2">No</button>';
             } else {
-                echo '<button type="submit" name="button1" class="btn btn-secondary m-1" value="Button1">Go Back</button>';
+                echo '<a  class="btn btn-secondary m-1" href="quiz.php">Go Back</a>';
             }
             ?>
         </div>
