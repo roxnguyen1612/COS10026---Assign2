@@ -2,10 +2,113 @@
 include_once("config.php");
 
 //Store student information
-if (isset($_POST["studentId"])) {$studentId = $_POST["studentId"];};
-if (isset($_POST["fname"])) {$fname = $_POST["fname"];};
-if (isset($_POST["lname"])) {$lname = $_POST["lname"];};
-if (isset($_POST["dob"])) {$dob = $_POST["dob"];};
+$errMsgs = [];
+if (isset($_POST["studentId"])) {
+    $studentId = $_POST["studentId"];
+} else {
+    header("Location: quiz.php");
+    die();
+};
+if (isset($_POST["fname"])) {
+    $fname = $_POST["fname"];
+};
+if (isset($_POST["lname"])) {
+    $lname = $_POST["lname"];
+};
+if (isset($_POST["dob"])) {
+    $dob = $_POST["dob"];
+};
+
+// Sanitize and validate inputs
+sanitizeInput($studentId);
+sanitizeInput($fname);
+sanitizeInput($lname);
+sanitizeInput($dob);
+
+isStudentID($studentId);
+isFirstName($fname);
+isLastName($lname);
+isDOB($dob);
+
+//Sanitizes input to avoid SQL Injections
+function sanitizeInput($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+//Checks if text is text
+function isText($data)
+{
+    global $errMsgs;
+    if (!empty($data)) {
+        if (!preg_match("/^[a-zA-Z]{0,}$/", $data)) {
+            array_push($errMsgs, "Text data must be text.");
+        }
+    } else {
+        array_push($errMsgs, "Text inputs must contain a value.");
+    }
+}
+
+// Checks if valid first name
+function isFirstName($data)
+{
+    global $errMsgs;
+    if (!empty($data)) {
+        if (!preg_match("/^[a-zA-Z -]{1,30}$/", $data)) {
+            array_push($errMsgs, "First name must be text.");
+        }
+    } else {
+        array_push($errMsgs, "First name must contain a value.");
+    }
+}
+
+// Checks if valid last name
+function isLastName($data)
+{
+    global $errMsgs;
+    if (!empty($data)) {
+        if (!preg_match("/^[a-zA-Z -]{1,30}$/", $data)) {
+            array_push($errMsgs, "Last name must be text.");
+        }
+    } else {
+        array_push($errMsgs, "Last name must contain a value.");
+    }
+}
+
+//Checks if date of birth matches a valid date within a certain range
+function isDOB($data)
+{
+    global $errMsgs;
+    if (!empty($data)) {
+        if (!preg_match("/^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/", $data)) {
+            array_push($errMsgs, "Date of birth is not a valid date.");
+        }
+    } else {
+        array_push($errMsgs, "Date of birth is empty.");
+    }
+}
+
+
+//Checks if input is a valid student ID
+function isStudentID($data)
+{
+    global $errMsgs;
+    if (!empty($data)) {
+        if (!preg_match("/^[0-9]{7,10}$/", $data)) {
+            array_push($errMsgs, "Student ID is not a valid ID.");
+        }
+    } else {
+        array_push($errMsgs, "Student ID is empty.");
+    }
+}
+
+// Checks if input is a valid year
+function isYear($data)
+{
+}
 
 // Marking function
 $score = 0;
@@ -23,7 +126,6 @@ while ($i < count($ques)) {
     } elseif (isset($_POST["$ques[$i]"])) {
         $ans = $_POST["$ques[$i]"]; //this is the answer
     };
-
     $query = "select * from qA2 where ques = \"$ques[$i]\"";
     $result = mysqli_query($conn, $query);
     if (!$result) {
@@ -33,8 +135,8 @@ while ($i < count($ques)) {
             $db_array = [];
             if ($row["ques"] == "question05") {   // remember, this outputs each line
                 array_push($db_array, $row["ans"]);
-                $compare = array_intersect($db_array,$ans);
-                if (count($compare) == 1){
+                $compare = array_intersect($db_array, $ans);
+                if (count($compare) == 1) {
                     $score += 0.5;
                 };
             } else {
@@ -46,6 +148,7 @@ while ($i < count($ques)) {
         $i += 1;
     };
 };
+
 ?>
 
 <!DOCTYPE html>
@@ -64,32 +167,49 @@ while ($i < count($ques)) {
 
 <body class="quiz_background">
     <header>
-        <?php include_once("inc/quiznav.inc"); ?>
+        <?php include_once("inc/quiznav.inc");
+        ?>
     </header>
     <div class="content">
-        <div>
-            <h1 class="h2 text-white">Your score is</h1>
-        </div>
+        <?php
+        global $error, $errMsgs;
+        if (count($errMsgs) != 0) {
+            foreach ($errMsgs as $msg) {
+                echo "<p class=\"text-white\"/>$msg</p>";
+            }
+        }
+        ?>
         <div>
             <?php
-            echo "<p class=\"h1 text-white\">$score</p>"
+            if (count($errMsgs) === 0)
+                echo "<h1 class=\"h2 text-white\">Your score is</h1>";
             ?>
         </div>
         <div>
-            <p class="text-white">You still have 1 more attempt wanna retry?</p>
+            <?php
+            if (count($errMsgs) === 0)
+                echo "<p class=\"h1 text-white\">$score</p>"
+            ?>
+        </div>
+        <div>
+            <?php
+            if (count($errMsgs) === 0)
+                echo "<p class=\"text-white\">You still have 1 more attempt wanna retry?</p>";
+            ?>
         </div>
 
         <div class="w-25 btn-group">
-            <button type="submit" name="button1" class="btn btn-secondary m-1" value="Button1">Yes</button>
-            <button type="submit" name="button2" class="btn btn-success m-1" value="Button2">No</button>
+            <?php
+            if (count($errMsgs) === 0) {
+                echo '
+                    <button type="submit" name="button1" class="btn btn-secondary m-1" value="Button1">Yes</button>
+                    <button type="submit" name="button2" class="btn btn-success m-1" value="Button2">No</button>';
+            } else {
+                echo '<a  class="btn btn-secondary m-1" href="quiz.php">Go Back</a>';
+            }
+            ?>
         </div>
     </div>
-
-    <!-- 2 btn func + need atmpt 2 ex -->
-    <?php 
-        if (isset($_POST["button2"])) {$stu_que = mysqli_query($conn, "INSERT INTO `attempts` VALUES (null, now(), '$studentId', '$fname', '$lname', 1, $score, '$dob')");};
-    ?>
-
     <?php include_once("inc/footer.inc"); ?>
 </body>
 

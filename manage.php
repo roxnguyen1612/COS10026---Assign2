@@ -1,5 +1,7 @@
-<?php include_once("session.php"); ?>
-<?php include_once("config.php"); ?>
+<?php include_once("session.php"); 
+?>
+<?php include_once("config.php"); 
+?>
 
 <!-- For session id, just a note
 $result = mysqli_query($conn, "SELECT * FROM `admin` WHERE username = '$sessionID'"); 
@@ -7,6 +9,7 @@ if ($row = mysqli...){
 Welcome $row["username"]!
 };
 -->
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,13 +27,14 @@ Welcome $row["username"]!
 <!-- 5 func for manage -->
 
 <body>
-  <section id="eheader">
-    <?php include_once("inc/menu.inc"); ?>
-  </section>
+  <header class="quiz_background">
+    <?php include_once("inc/quiznav.inc"); ?>
+  </header>
 
   <section class="p-5">
     <div class="border m-1 rounded border-dark pb-5">
-      <h1 class="p-5">Manager Page</h1>
+      <h1 class="ps-5 pe-5 pt-5 pb-2 h1">Manager Page</h1>
+      <h2 class="ps-5 pb-5 pe-5 h3">Welcome FirstName LastName!</h2>
       <div class="forms">
         <form action="" class="container">
           <fieldset class="row g-3 align-items-center border-dark border m-2 rounded-3 p-5">
@@ -88,9 +92,16 @@ Welcome $row["username"]!
         </div>
       </div>
     </div>
+    <div class="container">
+      <div class="row g-3 align-items-center m-2 rounded-3 p-5">
+        <div class="col-auto ">
+          <button type="button" class="btn btn-danger btn-lg block">Log Out</button>
+        </div>
+      </div>
+    </div>
   </section>
 
-<!-- Note for the logout button - PHP
+  <!-- Note for the logout button - PHP
 if (isset($_POST["name"])){
   session_start();            -> should I?
   session_destroy();

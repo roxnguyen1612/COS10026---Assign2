@@ -24,14 +24,18 @@
                 Sign Up
               </h1>
 
-              <div class="form-floating mb-2">
+              <div class="mb-5 text-start">
+                <label for="username" class="form-label">Username:</label>
                 <input type="text" name="username" id="username" placeholder="Username" class="form-control">
-                <label for="username">Username</label>
               </div>
 
-              <div class="form-floating mb-4">
+              <div class="mb-4 text-start">
+                <label for="password" class="form-label">Password:</label>
                 <input type="password" name="password" id="password" placeholder="Password" class="form-control">
-                <label for="password">Password</label>
+              </div>
+              <div class="mb-4 text-start">
+                <label for="password" class="form-label">Confirm Password:</label>
+                <input type="password" name="password" id="password" placeholder="Re-enter Password" class="form-control">
               </div>
               <button class="btn btn-primary btn-lg btn-block shadow-sm" type="submit">Sign Up</button>
             </form>
