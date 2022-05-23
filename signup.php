@@ -40,6 +40,9 @@
       </div>
     </div>
   </section>
+
+  <!-- func to submit input in db -->
+  
   <?php include_once("inc/footer.inc"); ?>
 </body>
 
