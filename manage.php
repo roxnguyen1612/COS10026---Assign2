@@ -1,6 +1,6 @@
-<?php include_once("session.php"); 
+<?//php include_once("session.php"); 
 ?>
-<?php include_once("config.php"); 
+<?//php include_once("config.php"); 
 ?>
 
 <!-- For session id, just a note
@@ -28,7 +28,7 @@ Welcome $row["username"]!
 
 <body>
   <header class="quiz_background">
-    <?php include_once("inc/quinav.inc"); ?>
+    <?php include_once("inc/quiznav.inc"); ?>
   </header>
 
   <section class="p-5">
