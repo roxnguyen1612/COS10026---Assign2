@@ -41,7 +41,7 @@ function isText($data)
 {
     global $errMsgs;
     if (!empty($data)) {
-        if (preg_match("/^[a-zA-Z]{0,}$/", $data)) {
+        if (!preg_match("/^[a-zA-Z]{0,}$/", $data)) {
             array_push($errMsgs, "Text data must be text.");
         }
     } else {
@@ -54,7 +54,7 @@ function isFirstName($data)
 {
     global $errMsgs;
     if (!empty($data)) {
-        if (preg_match("/^[a-zA-Z]{0,}$/", $data)) {
+        if (!preg_match("/^[a-zA-Z -]{1,30}$/", $data)) {
             array_push($errMsgs, "First name must be text.");
         }
     } else {
@@ -67,7 +67,7 @@ function isLastName($data)
 {
     global $errMsgs;
     if (!empty($data)) {
-        if (preg_match("/^[a-zA-Z]{0,}$/", $data)) {
+        if (!preg_match("/^[a-zA-Z -]{1,30}$/", $data)) {
             array_push($errMsgs, "Last name must be text.");
         }
     } else {
