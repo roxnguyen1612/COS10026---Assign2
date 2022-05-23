@@ -1,6 +1,6 @@
-<?//php include_once("session.php"); 
+<?php include_once("session.php"); 
 ?>
-<?//php include_once("config.php"); 
+<?php include_once("config.php"); 
 ?>
 
 <!-- For session id, just a note
