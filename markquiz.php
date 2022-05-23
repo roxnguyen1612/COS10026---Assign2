@@ -5,6 +5,9 @@ include_once("config.php");
 $errMsgs = [];
 if (isset($_POST["studentId"])) {
     $studentId = $_POST["studentId"];
+} else {
+    header("Location: quiz.php");
+    die();
 };
 if (isset($_POST["fname"])) {
     $fname = $_POST["fname"];
