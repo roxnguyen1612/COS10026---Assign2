@@ -1,6 +1,7 @@
 <?php include_once("config.php"); ?>
 <?php  
   session_start();    // start and get data
+  $_SESSION["test_atmpt"] = 1; //for markquiz
   // if not login, go back
   if (!isset($_SESSION["user"]) || (!isset($_SESSION["pwd"]))){
       header("location: login.php");
