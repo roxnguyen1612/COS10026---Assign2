@@ -29,6 +29,7 @@
   </header>
 
   <section class="p-5">
+
     <div class="border m-1 rounded border-dark pb-5">
       <h1 class="ps-5 pe-5 pt-5 pb-2 h1">Manager Page</h1>
       <h2 class="ps-5 pb-5 pe-5 h3">Welcome <?php echo $name; ?> !</h2>
@@ -78,15 +79,15 @@
             </div>
           </fieldset>
         </form>
-        <div class="container">
-          <div class="row g-3 align-items-center border-dark border m-2 rounded-3 p-5">
+        <form class="container" action="displaytable.php" method="get">
+          <fieldset class="row g-3 align-items-center border-dark border m-2 rounded-3 p-5">
             <div class="col-auto">
-              <button type="submit" class="btn btn-primary">List all attempts</button>
+              <button name="data" type="submit" class="btn btn-primary" value="listall">List all attempts</button>
               <button type="submit" class="btn btn-success">Students who got 100%</button>
               <button type="submit" class="btn btn-dark">Students who got less than 50%</button>
             </div>
-          </div>
-        </div>
+          </fieldset>
+        </form>
       </div>
     </div>
     <div class="container">
