@@ -10,6 +10,18 @@
   };
 ?>
 
+<!-- Note for the logout button - PHP 
+
+<?php
+// if (isset($_POST["logout"])) {
+//   session_start();            
+//   session_destroy();
+//   header ("location: login.php");
+// };
+?>
+
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +46,7 @@
       <h1 class="ps-5 pe-5 pt-5 pb-2 h1">Manager Page</h1>
       <h2 class="ps-5 pb-5 pe-5 h3">Welcome <?php echo $name; ?> !</h2>
       <div class="forms">
-        <form action="" class="container">
+        <form action="" method="post" class="container">
           <fieldset class="row g-3 align-items-center border-dark border m-2 rounded-3 p-5">
             <div class="col-auto form-floating">
               <input type="text" name="studentid" id="studentid" class="form-control" placeholder="Student ID">
@@ -99,8 +111,6 @@
     </div>
   </section>
 
-  <!-- Note for the logout button - PHP -->
-  
   <footer>
     <?php include_once("inc/footer.inc"); ?>
   </footer>
