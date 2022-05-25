@@ -1,11 +1,15 @@
 <?php
+session_start();
 include_once("config.php");
+//atmpt test
+$test_atmpt = $_SESSION["test_atmpt"];
+echo "Test attempt: ". $test_atmpt;
 
 //Store student information
 if (isset($_POST["studentId"])) {
     $studentId = $_POST["studentId"];
 } else {
-    header("Location: quiz.php");
+    header("location: quiz.php");
     die();
 };
 if (isset($_POST["fname"])) {
@@ -56,6 +60,8 @@ while ($i < count($ques)) {
         $i += 1;
     };
 };
+
+
 ?>
 
 <!DOCTYPE html>
@@ -86,7 +92,7 @@ while ($i < count($ques)) {
             ?>
         </div>
         <?php
-        if ($atmpt < 2) {
+        if ($test_atmpt < 2) {
             echo "
         <div>
             <p class=\"text-white\">You still have 1 more attempt wanna retry?</p>
@@ -94,13 +100,19 @@ while ($i < count($ques)) {
 
         <div class=\"w-25 btn-group\">
                 <a href=\"quiz.php\"><button type=\"submit\" name=\"button1\" class=\"btn btn-success m-1\" value=\"Button1\">Yes</button></a>
+        </div>
+
+        <a href=\"index.php\"><button type=\"submit\" name=\"button2\" class=\"btn btn-secondary m-1\" value=\"Button2\">No</button></a>";
+
+        } else {echo "
+        <div>
+            <p class=\"text-white\">You are out of attempts.</p>
         </div>";
         };
         ?>
-
-        <a href="index.php"><button type="submit" name="button2" class="btn btn-secondary m-1" value="Button2">No</button></a>
         <?php // we will need the atmpt in the session
-        $insert_atmpt = mysqli_query($conn, "INSERT INTO `attempts` VALUES (null, now(), $studentId, '$fname', '$lname', 1, $score, '$dob');");
+        $insert_atmpt = mysqli_query($conn, "INSERT INTO `attempts` VALUES (null, now(), $studentId, '$fname', '$lname', $test_atmpt, $score, '$dob');");
+        echo "Attempt: " . $test_atmpt;
         ?>
     </div>
     </div>
