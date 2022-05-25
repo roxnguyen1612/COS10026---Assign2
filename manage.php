@@ -2,7 +2,7 @@
 <?php  
   session_start();    // start and get data
   // if not login, go back
-  if (!isset($_SESSION["user"]) && (!isset($_SESSION["pwd"]))){
+  if (!isset($_SESSION["user"]) || (!isset($_SESSION["pwd"]))){
       header("location: login.php");
       exit();
   } else {
@@ -98,16 +98,8 @@
     </div>
   </section>
 
-  <!-- Note for the logout button - PHP
-if (isset($_POST["name"])){
-  session_start();            -> should I?
-  session_destroy();
-  header ("login.php");
-}
-
-
--->
-
+  <!-- Note for the logout button - PHP -->
+  
   <footer>
     <?php include_once("inc/footer.inc"); ?>
   </footer>
