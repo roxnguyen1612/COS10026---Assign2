@@ -10,10 +10,9 @@
                 >
               </li>
               <li>
-                <a href="mailto:103792850@student.swin.edu.au"
-                  >103752850 - Kim Duong Pham</a
+                <a href="mailto:100583828@student.swin.edu.au"
+                  >100583828 - Giovanni Tripodi</a
                 >
-              </li>
               <li>
                 <a href="mailto:103848151@student.swin.edu.au"
                   >103848151 - William Chan</a
@@ -24,13 +23,14 @@
                   >103844094 - Tashahud</a
                 >
               </li>
+              </li>
               <li>
-                <a href="mailto:100583828@student.swin.edu.au"
-                  >100583828 - Giovanni Tripodi</a
+                <a href="mailto:103793057@student.swin.edu.au"
+                  >103793057 - Ahmed Daiyan</a
                 >
               </li>
                 <li>
-                <a href="https://www.youtube.com/watch?v=F0vtwdYiMh8">OUR YOUTUBE VIDEO</a>
+                <a href="">OUR YOUTUBE VIDEO</a>
               </li>
             </ul>
           </div>
