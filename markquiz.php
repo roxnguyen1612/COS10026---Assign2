@@ -97,17 +97,17 @@ while ($i < count($ques)) {
             <p class=\"text-white\">You still have 1 more attempt wanna retry?</p>
         </div>
 
-        <div class=\"w-25 btn-group\">
-                <a href=\"quiz.php\"><button type=\"submit\" name=\"button1\" class=\"btn btn-success m-1\" value=\"Button1\">Yes</button></a>
-        </div>
-
-        <a href=\"index.php\"><button type=\"submit\" name=\"button2\" class=\"btn btn-secondary m-1\" value=\"Button2\">No</button></a>";
-
+        <div class='btn-group w-25'>
+                <a class=\"btn btn-primary btn-lg shadow-sm\" href=\"quiz.php\">Yes</a>
+                <a class=\"btn btn-secondary btn-lg shadow-sm\" href=\"index.php\">No</a>
+        </div>";
         } else {echo "
         <div>
             <p class=\"text-white\">You are out of attempts.</p>
         </div>
-        <a href=\"index.php\"><button type=\"submit\" name=\"goback\" class=\"btn btn-success m-1\" value=\"Button3\">Go Back</button></a>";
+        <div class='btn-group w-25'>
+                <a class=\"btn btn-primary btn-lg shadow-sm\" href=\"index.php\">Go Back</a>
+        </div>";
         };
         ?>
         <?php $insert_atmpt = mysqli_query($conn, "INSERT INTO `attempts` VALUES (null, now(), $studentId, '$fname', '$lname', $test_atmpt, $score, '$dob');");?>

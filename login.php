@@ -1,30 +1,30 @@
 <?php
-session_start();
+// session_start();
 ?>
 
-<?php include_once("config.php"); ?>
+<?php //include_once("config.php"); ?>
 
 <?php
-$atmpt = 0;
+// $atmpt = 0;
 
-// check if form is submitted
-if (isset($_POST["login"])) {
-    // get value of input named atmpt in html
-    $atmpt = $_POST["hidden"];
-    if ($atmpt < 3) {
-        $user = $_POST["username"];
-        $pwd = $_POST["password"];
-        $query = mysqli_query($conn, "SELECT * FROM admin WHERE username = '$user' AND pwd = '$pwd'");
-        if ($result = mysqli_fetch_assoc($query)) {
-            echo $result;
-            $_SESSION["user"] = $result["username"];
-            $_SESSION["pwd"] = $result["pwd"];
-            header("location: manage.php");
-        } else {
-            $atmpt++;
-        };
-    };
-};
+// // check if form is submitted
+// if (isset($_POST["login"])) {
+//     // get value of input named atmpt in html
+//     $atmpt = $_POST["hidden"];
+//     if ($atmpt < 3) {
+//         $user = $_POST["username"];
+//         $pwd = $_POST["password"];
+//         $query = mysqli_query($conn, "SELECT * FROM admin WHERE username = '$user' AND pwd = '$pwd'");
+//         if ($result = mysqli_fetch_assoc($query)) {
+//             echo $result;
+//             $_SESSION["user"] = $result["username"];
+//             $_SESSION["pwd"] = $result["pwd"];
+//             header("location: manage.php");
+//         } else {
+//             $atmpt++;
+//         };
+//     };
+// };
 ?>
 
 <!DOCTYPE html>
@@ -68,14 +68,15 @@ if (isset($_POST["login"])) {
                                     $a = 3 - $atmpt;
                                     echo "<p>Number of attempts left is $a.</p> "; ?>
                             </div>
+                            <hr>
+                        </form>
+                        <div class="d-grid gap-2 col-4 mx-auto">
+                            <p>Are you a new admin? Sign up <a href="signup.php">here</a></p>
+                            <button class="btn btn-primary btn-lg btn-block shadow-sm" <?php if ($atmpt == 3) { ?> disabled="disabled" <?php } ?> type="submit" name="login" id="login">Login</button>
+                        </div>
                     </div>
-                    <button class="btn btn-primary btn-lg btn-block shadow-sm" <?php if ($atmpt == 3) { ?> disabled="disabled" <?php } ?> type="submit" name="login" id="login">Login</button>
-                    </form>
-                    <hr>
-                    <p>Are you a new admin? Sign up <a href="signup.php">here</a></p>
                 </div>
             </div>
-        </div>
         </div>
     </section>
 
