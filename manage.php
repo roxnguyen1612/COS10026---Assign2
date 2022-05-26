@@ -54,7 +54,7 @@ if (isset($_POST["logout"])) {
               <label for="studentname">Name</label>
             </div>
             <div class="col-auto">
-              <button name="data" value="liststudent" type="submit" class="btn btn-primary">List attempts</button>
+              <button name="listID" value="liststudent" type="submit" class="btn btn-primary">List attempts</button>
             </div>
           </fieldset>
         </form>
@@ -65,7 +65,7 @@ if (isset($_POST["logout"])) {
               <label for="studentid">Student ID</label>
             </div>
             <div class="col-auto">
-              <button type="submit" class="btn btn-danger">Delete all attempts</button>
+              <button type="submit" name="delete" id="delete" class="btn btn-danger">Delete all attempts</button>
             </div>
           </fieldset>
         </form>
@@ -84,16 +84,16 @@ if (isset($_POST["logout"])) {
               <label for="scoreNum">New Score</label>
             </div>
             <div class="col">
-              <button type="submit" class="btn btn-warning">Change Attempt Score</button>
+              <button type="submit" name="change" id="change" class="btn btn-warning">Change Attempt Score</button>
             </div>
           </fieldset>
         </form>
         <form class="container" action="displaytable.php" method="get">
           <fieldset class="row g-3 align-items-center border-dark border m-2 rounded-3 p-5">
             <div class="col-auto">
-              <button name="data" type="submit" class="btn btn-primary" value="listall">List all attempts</button>
-              <button type="submit" class="btn btn-success">Students who got 100%</button>
-              <button type="submit" class="btn btn-dark">Students who got less than 50%</button>
+              <button name="listAll" id="listAll" type="submit" class="btn btn-primary" value="listall">List all attempts</button>
+              <button type="submit" name="list100" id="list100" class="btn btn-success">Students who got 100%</button>
+              <button type="submit" name="list50" id="list50" class="btn btn-dark">Students who got less than 50%</button>
             </div>
           </fieldset>
         </form>
