@@ -27,9 +27,9 @@ $i = 0;
 $ques = ["question01", "question02", "question03", "question04", "question05", "question06", "question07", "question08"]; // this is the col
 
 while ($i < count($ques)) {
+    $ans = [];
     if ($ques[$i] == "question05") {
         if (!empty($_POST["question05"])) {
-            $ans = [];
             foreach ($_POST["question05"] as $value) { // checkbox's name needs to + [] first before using this method
                 array_push($ans, $value);
             };
