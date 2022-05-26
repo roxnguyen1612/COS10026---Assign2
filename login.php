@@ -1,30 +1,30 @@
 <?php
-// session_start();
+session_start();
 ?>
 
-<?php //include_once("config.php"); ?>
+<?php include_once("config.php"); ?>
 
 <?php
-// $atmpt = 0;
+$atmpt = 0;
 
-// // check if form is submitted
-// if (isset($_POST["login"])) {
-//     // get value of input named atmpt in html
-//     $atmpt = $_POST["hidden"];
-//     if ($atmpt < 3) {
-//         $user = $_POST["username"];
-//         $pwd = $_POST["password"];
-//         $query = mysqli_query($conn, "SELECT * FROM admin WHERE username = '$user' AND pwd = '$pwd'");
-//         if ($result = mysqli_fetch_assoc($query)) {
-//             echo $result;
-//             $_SESSION["user"] = $result["username"];
-//             $_SESSION["pwd"] = $result["pwd"];
-//             header("location: manage.php");
-//         } else {
-//             $atmpt++;
-//         };
-//     };
-// };
+// check if form is submitted
+if (isset($_POST["login"])) {
+    // get value of input named atmpt in html
+    $atmpt = $_POST["hidden"];
+    if ($atmpt < 3) {
+        $user = $_POST["username"];
+        $pwd = $_POST["password"];
+        $query = mysqli_query($conn, "SELECT * FROM admin WHERE username = '$user' AND pwd = '$pwd'");
+        if ($result = mysqli_fetch_assoc($query)) {
+            echo $result;
+            $_SESSION["user"] = $result["username"];
+            $_SESSION["pwd"] = $result["pwd"];
+            header("location: manage.php");
+        } else {
+            $atmpt++;
+        };
+    };
+};
 ?>
 
 <!DOCTYPE html>
