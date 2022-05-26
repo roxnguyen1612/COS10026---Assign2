@@ -1,9 +1,7 @@
 <?php
 session_start();
-if (!isset($_SESSION["test_atmpt"])) {
-    $_SESSION["test_atmpt"] = 1;
-};
 ?>
+
 <?php include_once("config.php"); ?>
 
 <?php

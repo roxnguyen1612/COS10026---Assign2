@@ -3,7 +3,7 @@ session_start();
 include_once("config.php");
 //atmpt test
 $test_atmpt = $_SESSION["test_atmpt"];
-echo "Test attempt: ". $test_atmpt;
+echo "Attempt: ".$test_atmpt;
 
 //Store student information
 if (isset($_POST["studentId"])) {
@@ -107,13 +107,11 @@ while ($i < count($ques)) {
         } else {echo "
         <div>
             <p class=\"text-white\">You are out of attempts.</p>
-        </div>";
+        </div>
+        <a href=\"index.php\"><button type=\"submit\" name=\"goback\" class=\"btn btn-success m-1\" value=\"Button3\">Go Back</button></a>";
         };
         ?>
-        <?php // we will need the atmpt in the session
-        $insert_atmpt = mysqli_query($conn, "INSERT INTO `attempts` VALUES (null, now(), $studentId, '$fname', '$lname', $test_atmpt, $score, '$dob');");
-        echo "Attempt: " . $test_atmpt;
-        ?>
+        <?php $insert_atmpt = mysqli_query($conn, "INSERT INTO `attempts` VALUES (null, now(), $studentId, '$fname', '$lname', $test_atmpt, $score, '$dob');");?>
     </div>
     </div>
     <?php include_once("inc/footer.inc"); ?>
