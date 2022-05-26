@@ -3,7 +3,6 @@ session_start();
 include_once("config.php");
 //atmpt test
 $test_atmpt = $_SESSION["test_atmpt"];
-echo "Attempt: ".$test_atmpt;
 
 //Store student information
 if (isset($_POST["studentId"])) {
