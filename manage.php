@@ -55,12 +55,12 @@ if (isset($_POST["logout"])) {
   <title>Supervisor Page</title>
 </head>
 
-<body>
+<body class="quiz_background">
   <header class="quiz_background">
     <?php include_once("inc/quiznav.inc"); ?>
   </header>
 
-  <section class="p-5">
+  <section class="p-5 m-5" style="background-color:white;">
 
     <div class="border m-1 rounded border-dark pb-5">
       <h1 class="ps-5 pe-5 pt-5 pb-2 h1">Manager Page</h1>
@@ -129,8 +129,8 @@ if (isset($_POST["logout"])) {
     </div>
     <div class="container">
       <div class="row g-3 align-items-center m-2 rounded-3 p-5">
-        <div class="col-auto ">
-          <a href='login.php'><button type="submit" name="logout">Log Out</button></a>
+        <div class="col-auto d-grid gap-2 col-4 mx-auto">
+          <button class="btn btn-danger btn-lg btn-block shadow-sm" type="submit" name="logout">Log Out</button>
         </div>
       </div>
     </div>

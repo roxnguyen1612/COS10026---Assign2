@@ -57,14 +57,14 @@
         Bernhard Grill, Jürgen Herre and Harald Popp. However, <span>Karlheinz Brandenburg</span> is often considered
         the inventor of the MP3 due to his crucial contributions to its development.</p>
       <figure>
-        <img src="/Images/karlheinz.jpg"
+        <img src="./Images/karlheinz.jpg"
           class="Karlheinz" alt="Karlheinz Brandenburg"/>
           
         <figcaption><em>Fig.1 - Karlheinz Brandenburg.</em></figcaption>
       </figure>
     </div>
     <div class="lb">
-      <img width='5%' src="/Images/lightbulb.png" alt="light bulb">
+      <img width='5%' src="./Images/lightbulb.png" alt="light bulb">
     </div>
     <div id="q&a">
       <h4>Q&A SECTION:</h4>

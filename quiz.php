@@ -56,7 +56,7 @@ $_SESSION["test_atmpt"] += 1;
         <input type="text" name="question01" value="" id="question01" minlength="4" maxlength="4" pattern="^\d{4}$" required="required" class="form-control" placeholder="What year was MP3 published?" />
         <label for="textQuestion">What year was MP3 published?</label>
         <div class="invalid-feedback">Please fill out.</div>
-        <img src="/Images/mp3.png" class="mp3" alt="MP3 Device" />
+        <img src="./Images/mp3.png" class="mp3" alt="MP3 Device" />
       </div>
     </fieldset>
     <fieldset>
@@ -138,7 +138,7 @@ $_SESSION["test_atmpt"] += 1;
           <option value="4MB">4.0MB</option>
         </select>
         <div class="invalid-feedback">Please select an answer.</div>
-        <img src="/Images/CD.png" class="cd" alt="CD" />
+        <img src="./Images/CD.png" class="cd" alt="CD" />
       </div>
     </fieldset>
     <fieldset>
@@ -201,7 +201,7 @@ $_SESSION["test_atmpt"] += 1;
         <label for="q6option4">Both</label>
         <div class="invalid-feedback">Please select an answer.</div>
       </div>
-      <img src="/Images/mp3device.jpg" class="device" alt="Mp3 Player" />
+      <img src="./Images/mp3device.jpg" class="device" alt="Mp3 Player" />
     </fieldset>
     <fieldset>
       <legend>
@@ -215,7 +215,7 @@ $_SESSION["test_atmpt"] += 1;
         <textarea placeholder="Write your answer here..." id="q7" name="question07" value="" rows="4" cols="40" class="form-control" required="required"></textarea>
         <div class="invalid-feedback">Please fill out.</div>
       </div>
-      <img src="/Images/audiofileformat.png" class="audio" alt="Audio File Format" />
+      <img src="./Images/audiofileformat.png" class="audio" alt="Audio File Format" />
     </fieldset>
     <fieldset>
       <legend>

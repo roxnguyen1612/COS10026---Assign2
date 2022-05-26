@@ -1,6 +1,6 @@
       <nav>
         <a href="index.php"
-          ><img src="/Images/logo.png" alt="Webify logo"
+          ><img src="./Images/logo.png" alt="Webify logo"
         /></a>
         <div class="nav-links">
           <div class="menu-wrap">
