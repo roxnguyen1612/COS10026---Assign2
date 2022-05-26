@@ -1,73 +1,27 @@
 <?php
+session_start();
 include_once("config.php");
-
-//Sanitizes 
-function sanitizeInput($data){
-    $data = trim($data,'>@<!.:');
-    $data = stripslashes($data);
-    $data = str_replace(' ', '', $data);
-    return $data;
-};
-
-function isText($data){
-    global $errMsgs;
-    if (!empty($data)) {
-        if (!preg_match("/^[a-zA-Z]{0,}$/", $data)) {
-            array_push($errMsgs, "Text data must be text.");
-        }
-    } else {
-        array_push($errMsgs, "Text inputs must contain a value.");
-    }
-};
-
-function isDOB($data){
-    global $errMsgs;
-    if (!empty($data)) {
-        if (!preg_match("/^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/", $data)) {
-            array_push($errMsgs, "Date of birth is not a valid date.");
-        }
-    } else {
-        array_push($errMsgs, "Date of birth is empty.");
-    }
-};
-
-function isINT($data){
-    global $errMsgs;
-    if (!empty($data)) {
-        if (!preg_match("/^[0-9]{7,10}$/", $data)) {
-            array_push($errMsgs, "Student ID is not a valid ID.");
-        }
-    } else {
-        array_push($errMsgs, "Student ID is empty.");
-    }
-};
+//atmpt test
+$test_atmpt = $_SESSION["test_atmpt"];
 
 //Store student information
-$errMsgs = [];
 if (isset($_POST["studentId"])) {
-    $studentId = sanitizeInput($_POST["studentId"]);
+    $studentId = $_POST["studentId"];
 } else {
-    header("Location: quiz.php");
+    header("location: quiz.php");
     die();
 };
 if (isset($_POST["fname"])) {
-    $fname = sanitizeInput($_POST["fname"]);
+    $fname = $_POST["fname"];
 };
 if (isset($_POST["lname"])) {
-    $lname = sanitizeInput($_POST["lname"]);
+    $lname = $_POST["lname"];
 };
 if (isset($_POST["dob"])) {
-    $dob = sanitizeInput($_POST["dob"]);
+    $dob = $_POST["dob"];
 };
 
-// Sanitize and validate inputs
-isINT($studentId);
-isText($fname);
-isText($lname);
-isDOB($dob);
-
 // Marking function
-$atmpt = 1;
 $score = 0;
 $i = 0;
 $ques = ["question01", "question02", "question03", "question04", "question05", "question06", "question07", "question08"]; // this is the col
@@ -106,7 +60,6 @@ while ($i < count($ques)) {
     };
 };
 
-$insert_atmpt = mysqli_query($conn, "INSERT INTO `attempts` VALUES (null, now(), $studentId, '$fname', '$lname', $atmpt, $score, '$dob';");
 
 ?>
 
@@ -137,21 +90,30 @@ $insert_atmpt = mysqli_query($conn, "INSERT INTO `attempts` VALUES (null, now(),
             echo "<p class=\"h1 text-white\">$score</p>"
             ?>
         </div>
-        <div>
-            <p class="text-white">You still have 1 more attempt wanna retry?</p>
-        </div>
-
-        <div class="w-25 btn-group">
-            <button type="submit" name="button1" class="btn btn-success m-1" value="Button1">Yes</button>
-            <button type="submit" name="button2" class="btn btn-secondary m-1" value="Button2">No</button>
-        </div>
-        
-        <!-- if retry, direct to quiz and atmpt = 2 -->
         <?php
-            if (isset($_POST))
-        ?>
+        if ($test_atmpt < 2) {
+            echo "
+        <div>
+            <p class=\"text-white\">You still have 1 more attempt wanna retry?</p>
+        </div>
 
+        <div class=\"w-25 btn-group\">
+                <a href=\"quiz.php\"><button type=\"submit\" name=\"button1\" class=\"btn btn-success m-1\" value=\"Button1\">Yes</button></a>
+        </div>
+
+        <a href=\"index.php\"><button type=\"submit\" name=\"button2\" class=\"btn btn-secondary m-1\" value=\"Button2\">No</button></a>";
+
+        } else {echo "
+        <div>
+            <p class=\"text-white\">You are out of attempts.</p>
+        </div>
+        <a href=\"index.php\"><button type=\"submit\" name=\"goback\" class=\"btn btn-success m-1\" value=\"Button3\">Go Back</button></a>";
+        };
+        ?>
+        <?php $insert_atmpt = mysqli_query($conn, "INSERT INTO `attempts` VALUES (null, now(), $studentId, '$fname', '$lname', $test_atmpt, $score, '$dob');");?>
+    </div>
     </div>
     <?php include_once("inc/footer.inc"); ?>
 </body>
+
 </html>
