@@ -2,29 +2,35 @@
 <?php
 include_once("config.php");
 $db = $conn;
-$tableName="attempts";
-$columns=[];
+$tableName = "attempts";
+$columns = [];
 switch ($_REQUEST['data']) {
     case 'listall':
-        $columns=['atmpt_id', 'date_time', 'studentID','fname','lname','attempt','score','dob'];
+        $columns = ['atmpt_id', 'date_time', 'studentID', 'fname', 'lname', 'attempt', 'score', 'dob'];
+        $fetchData = fetch_data($db, $tableName, $columns);
         break;
-        default:
+    case 'liststudent':
+        $columns = ['atmpt_id', 'date_time', 'studentID', 'fname', 'lname', 'attempt', 'score', 'dob'];
+        $fetchData = fetch_student($db, $tableName, $columns);
         break;
-    }
+    default:
+        break;
+}
 $fetchData = fetch_data($db, $tableName, $columns);
-function fetch_data($db, $tableName, $columns){
-    if(empty($db)){
+function fetch_data($db, $tableName, $columns)
+{
+    if (empty($db)) {
         $msg = "Database connection error";
     } elseif (empty($columns) || !is_array($columns)) {
-        $msg="Columns Name must be defined in an indexed array";
-    } elseif (empty($tableName)){
+        $msg = "Columns Name must be defined in an indexed array";
+    } elseif (empty($tableName)) {
         $msg = "Table Name is empty";
     } else {
         $columnName = implode(", ", $columns);
-        $query = "SELECT " .$columnName." FROM $tableName"." ORDER BY atmpt_id DESC";
-        $result = $db->query($query); 
+        $query = "SELECT " . $columnName . " FROM $tableName" . " ORDER BY atmpt_id DESC";
+        $result = $db->query($query);
 
-        if($result){
+        if ($result) {
             if ($result->num_rows > 0) {
                 $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 $msg = $row;
@@ -37,9 +43,30 @@ function fetch_data($db, $tableName, $columns){
     }
     return $msg;
 }
+
+function fetch_student($db, $tableName, $columns)
+{
+    $fields = array('studentid', 'studentname');
+    $conditions = array();
+
+    foreach ($fields as $field) {
+        if (isset($_POST[$field]) && $_POST[$field] != '') {
+            $conditions[] = "`$field` LIKE '%" . $db->real_escape_string($_POST[$field]) . "%'";
+        }
+    }
+
+    $query = "SELECT * FROM TABLE ";
+    if (count($conditions) > 0) {
+        $query .= "WHERE " . implode(" AND ", $conditions);
+    }
+
+    $result = $db->query($query);
+    return $result;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -51,10 +78,11 @@ function fetch_data($db, $tableName, $columns){
     <link rel="stylesheet" href="styles/style.css" />
     <title>Table Display</title>
 </head>
+
 <body>
-<header class="quiz_background">
-    <?php include_once("inc/quiznav.inc"); ?>
-  </header>
+    <header class="quiz_background">
+        <?php include_once("inc/quiznav.inc"); ?>
+    </header>
     <section class="container w-100">
         <div class="row mt-5">
             <div class="col-auto">
@@ -70,31 +98,32 @@ function fetch_data($db, $tableName, $columns){
                                 <th>Attempt Number</th>
                                 <th>Score</th>
                                 <th>Date of Birth</th>
-                        </tr>
+                            </tr>
                         </thead>
                         <tbody>
                             <?php
-                                if(is_array($fetchData)){
-                                    foreach($fetchData as $data){                                    
-                                        ?>
-                                        <tr>
-                                            <td><?php echo isset($data['atmpt_id']) ? $data['atmpt_id'] :''; ?></td>
-                                            <td><?php echo isset($data['date_time']) ? $data['date_time'] : ''; ?></td>
-                                            <td><?php echo isset($data['studentID']) ? $data['studentID'] : ''; ?></td>
-                                            <td><?php echo isset($data['fname']) ? $data['fname'] : ''; ?></td>
-                                            <td><?php echo isset($data['lname']) ? $data['lname'] : ''; ?></td>
-                                            <td><?php echo isset($data['attempt']) ? $data['attempt'] : ''; ?></td>
-                                            <td><?php echo isset($data['score']) ? $data['score'] : ''; ?></td>
-                                            <td><?php echo isset($data['dob']) ? $data['dob'] : ''; ?></td>
-                                        </tr>
-                                        <?php
-                                         }}else{?>
-                                         <tr>
-                                             <td colspan="8">
-                                                 <?php echo $fetchData; ?>
-                                             </td>
-                                         </tr>
-                                         <?php } ?>
+                            if (is_array($fetchData)) {
+                                foreach ($fetchData as $data) {
+                            ?>
+                                    <tr>
+                                        <td><?php echo isset($data['atmpt_id']) ? $data['atmpt_id'] : ''; ?></td>
+                                        <td><?php echo isset($data['date_time']) ? $data['date_time'] : ''; ?></td>
+                                        <td><?php echo isset($data['studentID']) ? $data['studentID'] : ''; ?></td>
+                                        <td><?php echo isset($data['fname']) ? $data['fname'] : ''; ?></td>
+                                        <td><?php echo isset($data['lname']) ? $data['lname'] : ''; ?></td>
+                                        <td><?php echo isset($data['attempt']) ? $data['attempt'] : ''; ?></td>
+                                        <td><?php echo isset($data['score']) ? $data['score'] : ''; ?></td>
+                                        <td><?php echo isset($data['dob']) ? $data['dob'] : ''; ?></td>
+                                    </tr>
+                                <?php
+                                }
+                            } else { ?>
+                                <tr>
+                                    <td colspan="8">
+                                        <?php echo $fetchData; ?>
+                                    </td>
+                                </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>
@@ -103,13 +132,14 @@ function fetch_data($db, $tableName, $columns){
 
         </div>
         <div class="row g-3 align-items-center mt-2 mb-2">
-        <div class="d-grid gap-2 col-4 mx-auto">
-          <a href="manage.php" class="btn btn-primary btn-lg ">Back</a>
+            <div class="d-grid gap-2 col-4 mx-auto">
+                <a href="manage.php" class="btn btn-primary btn-lg ">Back</a>
+            </div>
         </div>
-      </div>
-    </section>                          
+    </section>
     <footer>
         <?php include_once("inc/footer.inc"); ?>
     </footer>
 </body>
+
 </html>
