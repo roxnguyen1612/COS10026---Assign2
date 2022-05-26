@@ -1,14 +1,14 @@
 <?php include_once("config.php"); ?>
 <?php
-session_start();    // start and get data
-$_SESSION["test_atmpt"] = 0; //for markquiz
-// if not login, go back
-if (!isset($_SESSION["user"]) || (!isset($_SESSION["pwd"]))) {
-  header("location: login.php");
-  exit();
-} else {
-  $name = $_SESSION["user"];
-};
+// session_start();    // start and get data
+// $_SESSION["test_atmpt"] = 0; //for markquiz
+// // if not login, go back
+// if (!isset($_SESSION["user"]) || (!isset($_SESSION["pwd"]))) {
+//   header("location: login.php");
+//   exit();
+// } else {
+//   $name = $_SESSION["user"];
+// };
 ?>
 
 <?php
@@ -68,16 +68,20 @@ if (isset($_POST["logout"])) {
       <div class="forms">
         <form class="container" action="displaytable.php" method="post">
           <fieldset class="row g-3 align-items-center border-dark border m-2 rounded-3 p-5">
-            <div class="col-auto form-floating">
+            <div class="col form-floating">
               <input type="text" name="studentID" id="studentID" class="form-control" placeholder="Student ID">
               <label for="studentID">Student ID</label>
             </div>
-            <div class="col-auto form-floating">
-              <input type="text" name="fname" id="studentname" class="form-control" placeholder="Name">
-              <label for="studentname">Name</label>
+            <div class="col form-floating">
+              <input type="text" name="fname" id="studentfname" class="form-control" placeholder="First Name">
+              <label for="studentfname">First Name</label>
             </div>
-            <div class="col-auto">
-              <button name="data" value="liststudent" type="submit" class="btn btn-primary">List attempts</button>
+            <div class="col form-floating">
+              <input type="text" name="lname" id="studentlname" class="form-control" placeholder="Last Name">
+              <label for="studentlname">Last Name</label>
+            </div>
+            <div class="col">
+              <button name="data" value="liststudent" type="submit" class="btn btn-primary col-8">List attempts</button>
             </div>
           </fieldset>
         </form>
@@ -120,8 +124,8 @@ if (isset($_POST["logout"])) {
           <fieldset class="row g-3 align-items-center border-dark border m-2 rounded-3 p-5">
             <div class="col-auto">
               <button name="data" id="listAll" type="submit" class="btn btn-primary" value="listall">List all attempts</button>
-              <button type="submit" name="list100" id="list100" class="btn btn-success">Students who got 100%</button>
-              <button type="submit" name="list50" id="list50" class="btn btn-dark">Students who got less than 50%</button>
+              <button name="data" type="submit" value="list100" id="list100" class="btn btn-success">Students who got 100%</button>
+              <button name="data" type="submit" value="list50" id="list50" class="btn btn-dark">Students who got less than 50%</button>
             </div>
           </fieldset>
         </form>
