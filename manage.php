@@ -1,21 +1,44 @@
 <?php include_once("config.php"); ?>
-<?php  
-  session_start();    // start and get data
-  $_SESSION["test_atmpt"] = 0; //for markquiz
-  // if not login, go back
-  if (!isset($_SESSION["user"]) || (!isset($_SESSION["pwd"]))){
-      header("location: login.php");
-      exit();
-  } else {
-    $name = $_SESSION["user"];
-  };
+<?php
+session_start();    // start and get data
+$_SESSION["test_atmpt"] = 0; //for markquiz
+// if not login, go back
+if (!isset($_SESSION["user"]) || (!isset($_SESSION["pwd"]))) {
+  header("location: login.php");
+  exit();
+} else {
+  $name = $_SESSION["user"];
+};
 ?>
 
 <?php
+$msg1 = "";
+$msg2 = "";
+if (isset($_POST["delete"])) {
+  $studentID = $_POST["studentid"];
+  $result = mysqli_query($conn, "DELETE FROM attempts WHERE studentID = $studentID");
+  if ($result) {
+    $msg1 = "Delete successfully!";
+  } else {
+    $msg1 = "Something wrong with the delete query";
+  };
+};
+if (isset($_POST["change"])) {
+  $studentID = $_POST["studentid"];
+  $atmpt = $_POST["attemptNum"];
+  $new_score = $_POST["scoreNum"];
+  $result = mysqli_query($conn, "UPDATE attempts SET score = $new_score WHERE studentID = $studentID AND attempt = $atmpt");
+  if ($result) {
+    $msg2 = "Updated successfully!";
+  } else {
+    $msg2 = "Something wrong with the change query";
+  };
+};
+
 if (isset($_POST["logout"])) {
-  session_start();            
+  session_start();
   session_destroy();
-  header ("location: login.php");
+  header("location: login.php");
 };
 ?>
 
@@ -54,22 +77,25 @@ if (isset($_POST["logout"])) {
               <label for="studentname">Name</label>
             </div>
             <div class="col-auto">
-              <button name="listID" value="liststudent" type="submit" class="btn btn-primary">List attempts</button>
+              <button name="data" value="liststudent" type="submit" class="btn btn-primary">List attempts</button>
             </div>
           </fieldset>
         </form>
-        <form action="" class="container">
+        <form action="manage.php" method="post" class="container">
           <fieldset class="row g-3 align-items-center border-dark border m-2 rounded-3 p-5">
             <div class="col-auto form-floating">
               <input type="text" name="studentid" id="studentid" class="form-control" placeholder="Student ID">
               <label for="studentid">Student ID</label>
             </div>
+            
             <div class="col-auto">
-              <button type="submit" name="delete" id="delete" class="btn btn-danger">Delete all attempts</button>
+              <button type="submit" name="delete" value="delete" class="btn btn-danger">Delete all attempts</button>
             </div>
+            <?php echo "<div> $msg1 </div>"; ?>
           </fieldset>
+
         </form>
-        <form action="" class="container">
+        <form action="manage.php" method="post" class="container">
           <fieldset class="row g-3 align-items-center border-dark border m-2 rounded-3 p-5">
             <div class="col form-floating">
               <input type="text" name="studentid" id="studentid" class="form-control" placeholder="Student ID">
@@ -83,15 +109,17 @@ if (isset($_POST["logout"])) {
               <input type="text" name="scoreNum" id="scoreNum" class="form-control" placeholder="New Score">
               <label for="scoreNum">New Score</label>
             </div>
+            
             <div class="col">
-              <button type="submit" name="change" id="change" class="btn btn-warning">Change Attempt Score</button>
+              <button type="submit" name="change" value="change" class="btn btn-warning">Change Attempt Score</button>
             </div>
+            <?php echo "<div> $msg2 </div>"; ?>
           </fieldset>
         </form>
-        <form class="container" action="displaytable.php" method="get">
+        <form class="container" action="displaytable.php" method="post">
           <fieldset class="row g-3 align-items-center border-dark border m-2 rounded-3 p-5">
             <div class="col-auto">
-              <button name="listAll" id="listAll" type="submit" class="btn btn-primary" value="listall">List all attempts</button>
+              <button name="data" id="listAll" type="submit" class="btn btn-primary" value="listall">List all attempts</button>
               <button type="submit" name="list100" id="list100" class="btn btn-success">Students who got 100%</button>
               <button type="submit" name="list50" id="list50" class="btn btn-dark">Students who got less than 50%</button>
             </div>
