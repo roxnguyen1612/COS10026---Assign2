@@ -166,7 +166,7 @@ $_SESSION["test_atmpt"] += 1;
       </div>
 
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="question05[]" id="q5option4" value="softer-sou" />
+        <input class="form-check-input" type="checkbox" name="question05[]" id="q5option4" value="softer-sound" />
         <label for="q5option4">
           The softer sound when a loud sound is playing simultaneously
         </label>
