@@ -43,18 +43,18 @@ if (isset($_POST["logout"])) {
       <h1 class="ps-5 pe-5 pt-5 pb-2 h1">Manager Page</h1>
       <h2 class="ps-5 pb-5 pe-5 h3">Welcome <?php echo $name; ?> !</h2>
       <div class="forms">
-        <form action="" method="post" class="container">
+        <form class="container" action="displaytable.php" method="post">
           <fieldset class="row g-3 align-items-center border-dark border m-2 rounded-3 p-5">
             <div class="col-auto form-floating">
-              <input type="text" name="studentid" id="studentid" class="form-control" placeholder="Student ID">
-              <label for="studentid">Student ID</label>
+              <input type="text" name="studentID" id="studentID" class="form-control" placeholder="Student ID">
+              <label for="studentID">Student ID</label>
             </div>
             <div class="col-auto form-floating">
-              <input type="text" name="studentname" id="studentname" class="form-control" placeholder="Name">
+              <input type="text" name="fname" id="studentname" class="form-control" placeholder="Name">
               <label for="studentname">Name</label>
             </div>
             <div class="col-auto">
-              <button type="submit" class="btn btn-primary">List attempts</button>
+              <button name="data" value="liststudent" type="submit" class="btn btn-primary">List attempts</button>
             </div>
           </fieldset>
         </form>
