@@ -1,4 +1,5 @@
 <!-- https://codingstatus.com/display-data-in-html-table-using-php-mysql/ -->
+<!-- https://stackoverflow.com/a/9317928 -->
 <?php
 include_once("config.php");
 $db = $conn;
@@ -16,7 +17,6 @@ switch ($_REQUEST['data']) {
     default:
         break;
 }
-$fetchData = fetch_data($db, $tableName, $columns);
 function fetch_data($db, $tableName, $columns)
 {
     if (empty($db)) {
@@ -46,8 +46,11 @@ function fetch_data($db, $tableName, $columns)
 
 function fetch_student($db, $tableName, $columns)
 {
-    $fields = array('studentid', 'studentname');
+    $fields = array('studentID', 'fname');
     $conditions = array();
+
+    $columnName = implode(", ", $columns);
+    $query = "SELECT " . $columnName . " FROM $tableName ";
 
     foreach ($fields as $field) {
         if (isset($_POST[$field]) && $_POST[$field] != '') {
@@ -55,13 +58,23 @@ function fetch_student($db, $tableName, $columns)
         }
     }
 
-    $query = "SELECT * FROM TABLE ";
     if (count($conditions) > 0) {
         $query .= "WHERE " . implode(" AND ", $conditions);
     }
-
+    echo "<p>$query</p>";
     $result = $db->query($query);
-    return $result;
+    if ($result) {
+        if ($result->num_rows > 0) {
+            $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            $msg = $row;
+        } else {
+            $msg = "No Data Found";
+        }
+    } else {
+        $msg = mysqli_error($db);
+    }
+
+    return $msg;
 }
 ?>
 <!DOCTYPE html>
