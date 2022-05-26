@@ -1,7 +1,6 @@
 <?php include_once("config.php"); ?>
 <?php  
   session_start();    // start and get data
-  $_SESSION["test_atmpt"] = 1; //for markquiz
   // if not login, go back
   if (!isset($_SESSION["user"]) || (!isset($_SESSION["pwd"]))){
       header("location: login.php");
@@ -14,11 +13,11 @@
 <!-- Note for the logout button - PHP 
 
 <?php
-// if (isset($_POST["logout"])) {
-//   session_start();            
-//   session_destroy();
-//   header ("location: login.php");
-// };
+if (isset($_POST["logout"])) {
+  session_start();            
+  session_destroy();
+  header ("location: login.php");
+};
 ?>
 
 -->
@@ -106,7 +105,7 @@
     <div class="container">
       <div class="row g-3 align-items-center m-2 rounded-3 p-5">
         <div class="col-auto ">
-          <a href='logout.php'>Log Out</a>
+          <a href='logout.php'><button type="submit" name="logout">Log Out</button></a>
         </div>
       </div>
     </div>
