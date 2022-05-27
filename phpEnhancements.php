@@ -1,3 +1,10 @@
+<!-- PROBLEM WITH THIS FILE 
+1. new img can't load, but the old enhancement img can?
+2. include footer.php, but still show the old html footer
+
+delete this after you read
+-->
+
 <!DOCTYPE html>
 <html lang='en'>
 
@@ -10,8 +17,8 @@
 
   <section id="big-text">
     <div class="big-text tcontainer">
-      <h1>PHP <span></span></h1>
-      <h2>ENHANCEMENTS<span></span></h2>
+      <h1>ENHANCEMENTS <span></span></h1>
+      <h2>PHP<span></span></h2>
     </div>
   </section>
 
@@ -145,3 +152,5 @@
     </div>
   </section>
 </body>
+
+<?php include_once("inc/footer.inc"); ?>
