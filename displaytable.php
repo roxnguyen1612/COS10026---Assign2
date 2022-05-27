@@ -2,51 +2,48 @@
 <!-- https://stackoverflow.com/a/9317928 -->
 <?php
 include_once("config.php");
-$db = $conn;
 $tableName = "attempts";
-$columns = [];
+$columns = ['date_time', 'studentID', 'fname', 'lname', 'attempt', 'score', 'dob'];
+
 switch ($_REQUEST['data']) {
     case 'listall':
-        $columns = ['atmpt_id', 'date_time', 'studentID', 'fname', 'lname', 'attempt', 'score', 'dob'];
-        $fetchData = fetch_data($db, $tableName, $columns);
+        $fetchData = fetch_data($conn, $tableName, $columns);
         break;
     case 'liststudent':
-        $columns = ['atmpt_id', 'date_time', 'studentID', 'fname', 'lname', 'attempt', 'score', 'dob'];
-        $fetchData = fetch_student($db, $tableName, $columns);
+        $fetchData = fetch_student($conn, $tableName, $columns);
+        break;
+    case 'list100':
+        $fetchData = fetch_onehundred($conn, $tableName, $columns);
+        break;
+    case 'list50':
+        $fetchData = fetch_fifty($conn, $tableName, $columns);
         break;
     default:
         break;
 }
+
 function fetch_data($db, $tableName, $columns)
 {
-    if (empty($db)) {
-        $msg = "Database connection error";
-    } elseif (empty($columns) || !is_array($columns)) {
-        $msg = "Columns Name must be defined in an indexed array";
-    } elseif (empty($tableName)) {
-        $msg = "Table Name is empty";
-    } else {
-        $columnName = implode(", ", $columns);
-        $query = "SELECT " . $columnName . " FROM $tableName" . " ORDER BY atmpt_id DESC";
-        $result = $db->query($query);
+    $columnName = implode(", ", $columns);
+    $query = "SELECT " . $columnName . " FROM $tableName";
+    $result = $db->query($query);
 
-        if ($result) {
-            if ($result->num_rows > 0) {
-                $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
-                $msg = $row;
-            } else {
-                $msg = "No Data Found";
-            }
+    if ($result) {
+        if ($result->num_rows > 0) {
+            $resultArray = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            $data = $resultArray;
         } else {
-            $msg = mysqli_error($db);
+            $data = "No Data Found";
         }
+    } else {
+        $data = mysqli_error($db);
     }
-    return $msg;
+    return $data;
 }
 
 function fetch_student($db, $tableName, $columns)
 {
-    $fields = array('studentID', 'fname');
+    $fields = array('studentID', 'fname', 'lname');
     $conditions = array();
 
     $columnName = implode(", ", $columns);
@@ -61,21 +58,60 @@ function fetch_student($db, $tableName, $columns)
     if (count($conditions) > 0) {
         $query .= "WHERE " . implode(" AND ", $conditions);
     }
-    echo "<p>$query</p>";
+
     $result = $db->query($query);
     if ($result) {
         if ($result->num_rows > 0) {
-            $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
-            $msg = $row;
+            $resultArray = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            $data = $resultArray;
         } else {
-            $msg = "No Data Found";
+            $data = "No Data Found";
         }
     } else {
-        $msg = mysqli_error($db);
+        $data = mysqli_error($db);
     }
 
-    return $msg;
+    return $data;
 }
+
+function fetch_onehundred($db, $tableName, $columns)
+{
+    $columnName = implode(", ", $columns);
+    $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE score = 8";
+    $result = $db->query($query);
+
+    if ($result) {
+        if ($result->num_rows > 0) {
+            $resultArray = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            $data = $resultArray;
+        } else {
+            $data = "No Data Found";
+        }
+    } else {
+        $data = mysqli_error($db);
+    }
+    return $data;
+}
+
+function fetch_fifty($db, $tableName, $columns)
+{
+    $columnName = implode(", ", $columns);
+    $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE score < 5";
+    $result = $db->query($query);
+
+    if ($result) {
+        if ($result->num_rows > 0) {
+            $resultArray = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            $data = $resultArray;
+        } else {
+            $data = "No Data Found";
+        }
+    } else {
+        $data = mysqli_error($db);
+    }
+    return $data;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -103,8 +139,7 @@ function fetch_student($db, $tableName, $columns)
                     <table class="table table-dark table-striped">
                         <thead>
                             <tr>
-                                <th>attempt_id</th>
-                                <th>date_time</th>
+                                <th>Time</th>
                                 <th>Student ID</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>
@@ -119,7 +154,6 @@ function fetch_student($db, $tableName, $columns)
                                 foreach ($fetchData as $data) {
                             ?>
                                     <tr>
-                                        <td><?php echo isset($data['atmpt_id']) ? $data['atmpt_id'] : ''; ?></td>
                                         <td><?php echo isset($data['date_time']) ? $data['date_time'] : ''; ?></td>
                                         <td><?php echo isset($data['studentID']) ? $data['studentID'] : ''; ?></td>
                                         <td><?php echo isset($data['fname']) ? $data['fname'] : ''; ?></td>
