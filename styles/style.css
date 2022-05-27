@@ -1027,14 +1027,21 @@ padding: 10px 10px;
   width: 100%;
   background-color: gray;
   opacity: .6;
+  transition: .3s ease opacity;
 }
 
 #enhancement2 .enhancement2-img img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
   transition: .3s ease transform;
 }
 
 #enhancement2 .enhancement2-items:hover .enhancement2-img img {
-  transform: scale(1.1);
+  transform: scale(1.05);
+}
+#enhancement2 .enhancement2-items:hover > .enhancement2-img::after{
+  opacity: 0;
 }
 
 #code{
