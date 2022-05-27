@@ -71,14 +71,13 @@ if (isset($_POST["login"])) {
                                     $a = 3 - $atmpt;
                                     echo "<p>Number of attempts left is $a.</p> "; ?>
                             </div>
+                            <button class="btn btn-primary btn-lg btn-block shadow-sm" <?php if ($atmpt == 3) { ?> disabled="disabled" <?php } ?> type="submit" name="login" id="login">Login</button>
+                        </form>
+                        <hr>
+                        <p>Are you a new admin? Sign up <a href="signup.php">here</a></p>
                     </div>
-                    <button class="btn btn-primary btn-lg btn-block shadow-sm" <?php if ($atmpt == 3) { ?> disabled="disabled" <?php } ?> type="submit" name="login" id="login">Login</button>
-                    </form>
-                    <hr>
-                    <p>Are you a new admin? Sign up <a href="signup.php">here</a></p>
                 </div>
             </div>
-        </div>
         </div>
     </section>
 

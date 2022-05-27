@@ -136,8 +136,8 @@ function fetch_fifty($db, $tableName, $columns)
         <div class="row mt-5">
             <div class="col-auto">
                 <div class="table-responsive">
-                    <table class="table table-dark table-striped">
-                        <thead>
+                    <table class="table table-hover">
+                        <thead class="table-success">
                             <tr>
                                 <th>Time</th>
                                 <th>Student ID</th>
