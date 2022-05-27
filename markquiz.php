@@ -94,7 +94,7 @@ while ($i < count($ques)) {
         if ($test_atmpt < 2) {
             echo "
         <div>
-            <p class=\"text-white\">You still have 1 more attempt wanna retry?</p>
+            <p class=\"text-white\">You still have 1 more attempt. Would you like to retry?</p>
         </div>
 
         <div class='btn-group w-25'>

@@ -1,3 +1,6 @@
+<!-- for testing purpose only
+will delete after finishing all -->
+
 <?php
 session_start();
 ?>
@@ -68,15 +71,14 @@ if (isset($_POST["login"])) {
                                     $a = 3 - $atmpt;
                                     echo "<p>Number of attempts left is $a.</p> "; ?>
                             </div>
-                            <hr>
-                        </form>
-                        <div class="d-grid gap-2 col-4 mx-auto">
-                            <p>Are you a new admin? Sign up <a href="signup.php">here</a></p>
-                            <button class="btn btn-primary btn-lg btn-block shadow-sm" <?php if ($atmpt == 3) { ?> disabled="disabled" <?php } ?> type="submit" name="login" id="login">Login</button>
-                        </div>
                     </div>
+                    <button class="btn btn-primary btn-lg btn-block shadow-sm" <?php if ($atmpt == 3) { ?> disabled="disabled" <?php } ?> type="submit" name="login" id="login">Login</button>
+                    </form>
+                    <hr>
+                    <p>Are you a new admin? Sign up <a href="signup.php">here</a></p>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
