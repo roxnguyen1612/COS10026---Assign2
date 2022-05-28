@@ -42,7 +42,7 @@ delete this after you read
           <li>3. Destroy section when LOGOUT</li>
         </ul>
       </div>
-    </div>
+
 
     <div class="enhancement1-items">
       <div class="icon"><img src="./Images/icon1.png" alt="icon1" /></div>
@@ -53,6 +53,7 @@ delete this after you read
         <li>3. Store & register admin account for managing purpose.</li>
         <li>4. Show students information based on specific requirements in manage page.</li>
       </ul>
+    </div>
     </div>
   </section>
 
@@ -208,7 +209,7 @@ delete this after you read
   </section>
 
   <!-- reference -->
-  <section>
+  <section class="ref2">
     <div id="ref">
       <h2 id="hd">Reference:</h2>
       <ol>
