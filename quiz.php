@@ -1,6 +1,5 @@
 <?php
 session_start();
-$_SESSION["test_atmpt"] += 1;
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +21,9 @@ $_SESSION["test_atmpt"] += 1;
 
 <body class="quiz_background">
   <?php include_once("inc/quiznav.inc"); ?>
+  <?php 
+  $atmpt = $_SESSION["test_atmpt"];
+  echo "<p>$atmpt</p>"; ?>
   <form method="post" action="markquiz.php" class="was-validated" novalidate>
     <fieldset>
       <legend>
@@ -251,7 +253,12 @@ $_SESSION["test_atmpt"] += 1;
     <!-- still need to figure out what to do with this  -->
 
     <div>
-      <input id="submit" name="submit" type="submit" value="Submit" class="btn btn-success btn-lg" />
+      <?php 
+      if ($_SESSION["test_atmpt"] < 2) {?>
+          <input id="submit" name="submit" type="submit" value="Submit" class="btn btn-success btn-lg" />
+          <?php } else { ?>
+            <button class="btn btn-success btn-lg" disabled="disabled">Submit</button>
+      <?php } ?>
       <input type="reset" value="Reset Form" class="btn btn-secondary btn-lg" />
     </div>
   </form>
