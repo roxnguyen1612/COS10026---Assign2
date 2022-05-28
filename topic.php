@@ -4,24 +4,24 @@
 <?php include_once("inc/header.inc"); ?>
 
 <body>
-   <section id="eheader">
-      <?php include_once("inc/menu.inc"); ?>
-    </section>
+  <section id="eheader">
+    <?php include_once("inc/menu.inc"); ?>
+  </section>
 
   <section id="big-text">
     <div class="big-text tcontainer">
-        <h1>ABOUT MP3 <span></span></h1>
-        <h2>Basic MP3 information <span></span></h2>
-      </div>
+      <h1>ABOUT MP3 <span></span></h1>
+      <h2>Basic MP3 information <span></span></h2>
+    </div>
   </section>
-        
-          <aside id="MP3fact">
+
+  <aside id="MP3fact">
     <h3>Do you know that</h3>
-      <blockquote cite="https://www.nstec.com/technology/what-type-of-information-or-dat-is-mp3/">
-        <p>A 32-megabyte song on a CD can be compressed down to about 3 MB by using this coding format. However, due to
-          its lossy format, some audio information will need to be sacrificed to reduce size significantly.</p>
-      </blockquote>
-    </aside>
+    <blockquote cite="https://www.nstec.com/technology/what-type-of-information-or-dat-is-mp3/">
+      <p>A 32-megabyte song on a CD can be compressed down to about 3 MB by using this coding format. However, due to
+        its lossy format, some audio information will need to be sacrificed to reduce size significantly.</p>
+    </blockquote>
+  </aside>
   <section class="intro">
     <br>
     <div class="def">
@@ -57,9 +57,8 @@
         Bernhard Grill, Jürgen Herre and Harald Popp. However, <span>Karlheinz Brandenburg</span> is often considered
         the inventor of the MP3 due to his crucial contributions to its development.</p>
       <figure>
-        <img src="./Images/karlheinz.jpg"
-          class="Karlheinz" alt="Karlheinz Brandenburg"/>
-          
+        <img src="./Images/karlheinz.jpg" class="Karlheinz" alt="Karlheinz Brandenburg" />
+
         <figcaption><em>Fig.1 - Karlheinz Brandenburg.</em></figcaption>
       </figure>
     </div>
@@ -105,7 +104,7 @@
         <th class="cl">Decline</th>
       </tr>
       <tr>
-        <td >Due to the MP3s ability to compress to a relatively small size while keeping most of its quality, the file
+        <td>Due to the MP3s ability to compress to a relatively small size while keeping most of its quality, the file
           format exploded in popularity in the 90s.</td>
         <td>Competing file formats emerge and a move to music streaming which typically utilise the OGG file format to
           stream music (Such as Spotify)</td>
@@ -130,22 +129,20 @@
       </li>
       <li>Brain M., May 2021, <em>How MP3 Files Work</em>, HowStuffWorks, available from <a href="https://computer.howstuffworks.com/mp3.htm">https://computer.howstuffworks.com/mp3.htm</a>
       </li>
-      <li>Bellis M., August 2019, <em>The History of MP3 Technology</em>, ThoughtCo., available from 
+      <li>Bellis M., August 2019, <em>The History of MP3 Technology</em>, ThoughtCo., available from
         <a href="https://www.thoughtco.com/history-of-mp4-1992132">https://www.thoughtco.com/history-of-mp4-1992132</a>
       </li>
       <li>Velasco C. , May 2017, <em>The MP3 Is Dead: Here's A Brief History Of MP3</em>
-, Tech Times, available from <a href="https://www.techtimes.com/articles/207213/20170513/the-mp3-is-dead-heres-a-brief-history-of-mp3.htm">https://www.techtimes.com/articles/207213/20170513/the-mp3-is-dead-heres-a-brief-history-of-mp3.htm</a>
+        , Tech Times, available from <a href="https://www.techtimes.com/articles/207213/20170513/the-mp3-is-dead-heres-a-brief-history-of-mp3.htm">https://www.techtimes.com/articles/207213/20170513/the-mp3-is-dead-heres-a-brief-history-of-mp3.htm</a>
       </li>
     </ol>
   </div>
-  <div class="end">
-    <a href="quiz.php">
-      <button type="button">
-        <span></span>
-        TEST YOUR KNOWLEDGE
-      </button>
-    </a>
+  <div class="button-text">
+  <div class="learn-btn2">
+    <span></span><a href="quiz.php">TEST YOUR KNOWLEDGE</a>
   </div>
-  <?php include_once("inc/footer.inc") ?> 
+  </div>
+  <?php include_once("inc/footer.inc") ?>
 </body>
+
 </html>

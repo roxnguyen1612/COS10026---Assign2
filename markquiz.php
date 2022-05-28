@@ -3,22 +3,28 @@ session_start();
 include_once("config.php");
 //atmpt test
 $test_atmpt = $_SESSION["test_atmpt"];
+//sanitize text
+function sanitize($text) {
+    $text = trim($_POST["text"],'>@<!.:'); // trim($var, specchar)
+	$new_t = str_replace(' ', '', $text);
+    return $text;
+};
 
 //Store student information
 if (isset($_POST["studentId"])) {
-    $studentId = $_POST["studentId"];
+    $studentId = sanitize($_POST["studentId"]);
 } else {
     header("location: quiz.php");
     die();
 };
 if (isset($_POST["fname"])) {
-    $fname = $_POST["fname"];
+    $fname = sanitize($_POST["fname"]);
 };
 if (isset($_POST["lname"])) {
-    $lname = $_POST["lname"];
+    $lname = sanitize($_POST["lname"]);
 };
 if (isset($_POST["dob"])) {
-    $dob = $_POST["dob"];
+    $dob = sanitize($_POST["dob"]);
 };
 
 // Marking function

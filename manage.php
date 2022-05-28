@@ -134,7 +134,7 @@ if (isset($_POST["logout"])) {
     <div class="container">
       <div class="row g-3 align-items-center m-2 rounded-3 p-5">
         <div class="col-auto d-grid gap-2 col-4 mx-auto">
-          <button class="btn btn-danger btn-lg btn-block shadow-sm" type="submit" name="logout">Log Out</button>
+          <a href="login.php"><button class="btn btn-danger btn-lg btn-block shadow-sm" type="submit" name="logout">Log Out</button></a>
         </div>
       </div>
     </div>
