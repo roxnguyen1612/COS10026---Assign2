@@ -216,13 +216,13 @@ delete this after you read
     <div id="ref">
       <h2 id="hd">Reference:</h2>
       <ol>
-        <li>Nurullah, Md. <em>Display Data in an HTML Table Using PHP & MySQL</em>, <a href="https://codingstatus.com/display-data-in-html-table-using-php-mysql/">https://codingstatus.com/display-data-in-html-table-using-php-mysql/</a></li>
-        <li>StackOverFlow, <em>Search MySQL Database with Multiple Fields in a Form</em>, <a href="https://stackoverflow.com/questions/9317836/search-mysql-database-with-multiple-fields-in-a-form/9317928#9317928">https://stackoverflow.com/questions/9317836/search-mysql-database-with-multiple-fields-in-a-form/9317928#9317928</a></li>
-        <li>PHP, <em>Explanation: session_start()</em>, <a href="https://www.php.net/manual/en/function.session-start.php#:~:text=Description%20%C2%B6&text=session_start()%20creates%20a%20session,and%20read%20session%20save%20handlers.">https://www.php.net/manual/en/function.session-start.php#:~:text=Description%20%C2%B6&text=session_start()%20creates%20a%20session,and%20read%20session%20save%20handlers.</a></li>
-        <li>StackOverFlow, <em>How to limit the number of login attempts in a login script?</em>, <a href="https://stackoverflow.com/questions/37120328/how-to-limit-the-number-of-login-attempts-in-a-login-script">https://stackoverflow.com/questions/37120328/how-to-limit-the-number-of-login-attempts-in-a-login-script</a></li>
-        <li>GetBootstrap, <em>Form controls</em>, viewed 25 May 2022, <a href="https://getbootstrap.com/docs/5.1/forms/form-control/">https://getbootstrap.com/docs/5.1/forms/form-control/</a></li>
-        <li>GetBootstrap, <em>Validation</em>, viewed 20 May 2022, <a href="https://getbootstrap.com/docs/5.1/forms/validation/">https://getbootstrap.com/docs/5.1/forms/validation/</a></li>
-        <li>GetBootstrap, <em>Tables</em>, viewed 20 May 2022, <a href="https://getbootstrap.com/docs/5.0/content/tables/">https://getbootstrap.com/docs/5.0/content/tables/</a></li>
+        <li>Nurullah, Md. Display Data in an HTML Table Using PHP & MySQL, <a href="https://codingstatus.com/display-data-in-html-table-using-php-mysql/">https://codingstatus.com/display-data-in-html-table-using-php-mysql/</a></li>
+        <li>StackOverFlow, Search MySQL Database with Multiple Fields in a Form, <a href="https://stackoverflow.com/questions/9317836/search-mysql-database-with-multiple-fields-in-a-form/9317928#9317928">https://stackoverflow.com/questions/9317836/search-mysql-database-with-multiple-fields-in-a-form/9317928#9317928</a></li>
+        <li>PHP, Explanation: session_start(), <a href="https://www.php.net/manual/en/function.session-start.php#:~:text=Description%20%C2%B6&text=session_start()%20creates%20a%20session,and%20read%20session%20save%20handlers.">https://www.php.net/manual/en/function.session-start.php#:~:text=Description%20%C2%B6&text=session_start()%20creates%20a%20session,and%20read%20session%20save%20handlers.</a></li>
+        <li>StackOverFlow, How to limit the number of login attempts in a login script?, <a href="https://stackoverflow.com/questions/37120328/how-to-limit-the-number-of-login-attempts-in-a-login-script">https://stackoverflow.com/questions/37120328/how-to-limit-the-number-of-login-attempts-in-a-login-script</a></li>
+        <li>GetBootstrap, Form controls, viewed 25 May 2022, <a href="https://getbootstrap.com/docs/5.1/forms/form-control/">https://getbootstrap.com/docs/5.1/forms/form-control/</a></li>
+        <li>GetBootstrap, Validation, viewed 20 May 2022, <a href="https://getbootstrap.com/docs/5.1/forms/validation/">https://getbootstrap.com/docs/5.1/forms/validation/</a></li>
+        <li>GetBootstrap, Tables, viewed 20 May 2022, <a href="https://getbootstrap.com/docs/5.0/content/tables/">https://getbootstrap.com/docs/5.0/content/tables/</a></li>
         </ol>
     </div>
   </section>
