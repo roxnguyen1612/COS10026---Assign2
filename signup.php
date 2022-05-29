@@ -35,7 +35,7 @@ if (isset($_POST["submit"])) {
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-8">
           <div class="card rounded">
-            <form action="" method="post" class="card-body text-center p-5 h-100">
+            <form action="#" method="post" class="card-body text-center p-5 h-100">
 
               <h1 class="mb-5">
                 Sign Up
@@ -51,8 +51,8 @@ if (isset($_POST["submit"])) {
                 <input type="password" name="pwd1" id="password" placeholder="Password" class="form-control">
               </div>
               <div class="mb-4 text-start">
-                <label for="password" class="form-label">Confirm Password:</label>
-                <input type="password" name="pwd2" id="password" placeholder="Re-enter Password" class="form-control">
+                <label for="retrypassword" class="form-label">Confirm Password:</label>
+                <input type="password" name="pwd2" id="retrypassword" placeholder="Re-enter Password" class="form-control">
               </div>
               <?php echo "<p>$msg</p>"; ?>
               <button class="btn btn-primary btn-lg btn-block shadow-sm" type="submit" name="submit">Sign Up</button>

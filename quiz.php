@@ -15,6 +15,8 @@ session_start();
   <?php 
   $atmpt = $_SESSION["test_atmpt"];
   echo "<p>$atmpt</p>"; ?>
+  <!-- novalidate has been set to demonstrate server side validation -->
+  <!-- Form for quiz -->
   <form method="post" action="markquiz.php" class="was-validated" novalidate>
     <fieldset>
       <legend>
@@ -47,7 +49,7 @@ session_start();
       </legend>
       <div class="form-floating mb-3 mt-3">
         <input type="text" name="question01" value="" id="question01" minlength="4" maxlength="4" pattern="^\d{4}$" required="required" class="form-control" placeholder="What year was MP3 published?" />
-        <label for="textQuestion">What year was MP3 published?</label>
+        <label for="question01">What year was MP3 published?</label>
         <div class="invalid-feedback">Please fill out.</div>
         <img src="./Images/mp3.png" class="mp3" alt="MP3 Device" />
       </div>
@@ -205,7 +207,7 @@ session_start();
         <p class="question_text">
           Which audio file format is most common for streaming?
         </p>
-        <textarea placeholder="Write your answer here..." id="q7" name="question07" value="" rows="4" cols="40" class="form-control" required="required"></textarea>
+        <textarea placeholder="Write your answer here..." id="q7" name="question07" rows="4" cols="40" class="form-control" required="required"></textarea>
         <div class="invalid-feedback">Please fill out.</div>
       </div>
       <img src="./Images/audiofileformat.png" class="audio" alt="Audio File Format" />
@@ -245,6 +247,7 @@ session_start();
 
     <div>
       <?php 
+      //If the user has attempted the quiz more than 2 times, disable the button
       if ($_SESSION["test_atmpt"] < 2) {?>
           <input id="submit" name="submit" type="submit" value="Submit" class="btn btn-success btn-lg" />
           <?php } else { ?>

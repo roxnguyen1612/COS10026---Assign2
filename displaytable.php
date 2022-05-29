@@ -5,6 +5,7 @@ include_once("config.php");
 $tableName = "attempts";
 $columns = ['date_time', 'studentID', 'fname', 'lname', 'attempt', 'score', 'dob'];
 
+//Checks which button is pressed on the previous page and gets the relevant information from the database.
 switch ($_REQUEST['data']) {
     case 'listall':
         $fetchData = fetch_data($conn, $tableName, $columns);
@@ -22,6 +23,7 @@ switch ($_REQUEST['data']) {
         break;
 }
 
+//Fetches all row/columns from the database from $tableName.
 function fetch_data($db, $tableName, $columns)
 {
     $columnName = implode(", ", $columns);
@@ -41,6 +43,7 @@ function fetch_data($db, $tableName, $columns)
     return $data;
 }
 
+//fetches rows where where student ID, first name or last name match.
 function fetch_student($db, $tableName, $columns)
 {
     $fields = array('studentID', 'fname', 'lname');
@@ -74,10 +77,11 @@ function fetch_student($db, $tableName, $columns)
     return $data;
 }
 
+//Returns the attempts where a student got 100% on their first attempt.
 function fetch_onehundred($db, $tableName, $columns)
 {
     $columnName = implode(", ", $columns);
-    $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE score = 8";
+    $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE score = 8 AND attempt = 1";
     $result = $db->query($query);
 
     if ($result) {
@@ -93,10 +97,11 @@ function fetch_onehundred($db, $tableName, $columns)
     return $data;
 }
 
+//Returns the attempts where a student got less than 50% on their second attempt
 function fetch_fifty($db, $tableName, $columns)
 {
     $columnName = implode(", ", $columns);
-    $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE score < 5";
+    $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE score < 5 AND attempt = 2";
     $result = $db->query($query);
 
     if ($result) {
@@ -126,10 +131,14 @@ function fetch_fifty($db, $tableName, $columns)
         <?php include_once("inc/quiznav.inc"); ?>
     </header>
     <section class="container w-100">
+        <h1 class="pt-5">Attempts Table</h1>
         <div class="row mt-5">
             <div class="col-auto">
+                <!-- Table-responsive allows for horizontal scrolling -->
                 <div class="table-responsive">
+                    <!-- table-hover allows for highlighting row on hover -->
                     <table class="table table-hover">
+                        <!-- table-success makes the head green -->
                         <thead class="table-success">
                             <tr>
                                 <th>Time</th>
@@ -143,6 +152,7 @@ function fetch_fifty($db, $tableName, $columns)
                         </thead>
                         <tbody>
                             <?php
+                            //Displays the returned information in a html table
                             if (is_array($fetchData)) {
                                 foreach ($fetchData as $data) {
                             ?>
@@ -160,7 +170,10 @@ function fetch_fifty($db, $tableName, $columns)
                             } else { ?>
                                 <tr>
                                     <td colspan="8">
-                                        <?php echo $fetchData; ?>
+                                        <?php
+                                        //If no data is found, it will echo "No Data found"
+                                        echo $fetchData;
+                                        ?>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -177,9 +190,7 @@ function fetch_fifty($db, $tableName, $columns)
             </div>
         </div>
     </section>
-    <footer>
-        <?php include_once("inc/footer.inc"); ?>
-    </footer>
+    <?php include_once("inc/footer.inc"); ?>
 </body>
 
 </html>

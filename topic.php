@@ -6,9 +6,9 @@
   <title>MP3 Topic</title>
 </head>
 <body>
-  <section id="eheader">
+  <header id="eheader">
     <?php include_once("inc/menu.inc"); ?>
-  </section>
+</header>
 
   <section id="big-text">
     <div class="big-text tcontainer">
@@ -65,7 +65,7 @@
       </figure>
     </div>
     <div class="lb">
-      <img width='5%' src="./Images/lightbulb.png" alt="light bulb">
+      <img src="./Images/lightbulb.png" alt="light bulb">
     </div>
     <div id="q&a">
       <h4>Q&A SECTION:</h4>

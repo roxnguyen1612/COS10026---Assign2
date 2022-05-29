@@ -15,7 +15,6 @@
           <div class="learn-btn">
             <span></span><a href="topic.html">Learn More</a>
           </div>
-          </div>
         </div>
       </div>
     </div>

@@ -9,6 +9,7 @@ if (isset($_POST["studentId"])) {
     $studentId = sanitizeInput($_POST["studentId"]);
     echo "StudentID: ";
 } else {
+    //If studentId is not set (Didn't come from quiz.php)
     header("location: quiz.php");
     die();
 };
@@ -22,7 +23,7 @@ if (isset($_POST["dob"])) {
     $dob = sanitizeInput($_POST["dob"]);
 };
 
-//Sanitizes 
+//Sanitizes $data
 function sanitizeInput($data)
 {
     $data = trim($data,'>@<!.:');
@@ -126,9 +127,13 @@ foreach ($ques as $q) {
     isEmpty($_POST[$q], $q);
 }
 
+//Will get data from database if there are no errors
 if (count($errMsgs) === 0) {
+    //Goes through each question submitted
     while ($i < count($ques)) {
         $ans = [];
+        
+        //Will get each answer of question 5 (checkbox) and push to array
         if ($ques[$i] == "question05") {
             if (!empty($_POST["question05"])) {
                 foreach ($_POST["question05"] as $value) { // checkbox's name needs to + [] first before using this method
@@ -138,13 +143,18 @@ if (count($errMsgs) === 0) {
         } elseif (isset($_POST["$ques[$i]"])) {
             $ans = $_POST["$ques[$i]"]; //this is the answer
         };
+
+        //Gets the quiz answer from the database
         $query = "SELECT * FROM qA2 WHERE ques = \"$ques[$i]\"";
         $result = mysqli_query($conn, $query);
+
         if (!$result) {
             echo "<p> class=\"wrong\"> Some thing is wrong with ", $query, "</p>";
         } else {
             while ($row = mysqli_fetch_assoc($result)) {
                 $db_array = [];
+
+                //Checks if student answers and answers from database match
                 if ($row["ques"] == "question05") {   // remember, this outputs each line
                     array_push($db_array, $row["ans"]);
                     $compare = array_intersect($db_array, $ans);
@@ -160,6 +170,8 @@ if (count($errMsgs) === 0) {
             $i += 1;
         };
     };
+
+    //Increment attempt amount
     $_SESSION["test_atmpt"] += 1;
     $test_atmpt = $_SESSION["test_atmpt"];
 }
@@ -190,6 +202,7 @@ if (count($errMsgs) === 0) {
             ?>
         </div>
         <?php
+        //Checks if there are any errors from quiz.php
         if (!printErrors($errMsgs)) {
             if ($test_atmpt < 2) {
                 echo "
