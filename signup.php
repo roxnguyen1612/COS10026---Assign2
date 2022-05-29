@@ -56,6 +56,7 @@ if (isset($_POST["submit"])) {
               </div>
               <?php echo "<p>$msg</p>"; ?>
               <button class="btn btn-primary btn-lg btn-block shadow-sm" type="submit" name="submit">Sign Up</button>
+              <br><br><p>Already have an account? Login <a href="login.php">here</a></p>
             </form>
           </div>
         </div>
