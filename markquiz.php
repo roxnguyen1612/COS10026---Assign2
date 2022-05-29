@@ -23,6 +23,27 @@ if (isset($_POST["dob"])) {
     $dob = sanitizeInput($_POST["dob"]);
 };
 
+//If "attempts" table does not exist it will create it.
+function createTable($db){
+    $table = "attempts";
+    $query = "SELECT * FROM $table";
+    $result = mysqli_query($db, $query);
+
+    if(empty($result)){
+        $query = mysqli_query($db, "CREATE TABLE IF NOT EXISTS $table (
+            atmpt_id INT NOT NULL AUTO_INCREMENT,
+            PRIMARY KEY(atmpt_id),
+            date_time DATETIME NOT NULL,
+            studentID INT(11) NOT NULL,
+            fname VARCHAR(25) NOT NULL,
+            lname VARCHAR(25) NOT NULL,
+            attempt int(11) NOT NULL,
+            score INT(11) NOT NULL,
+            dob VARCHAR(30) NOT NULL
+            )");
+    }
+}
+
 //Sanitizes $data
 function sanitizeInput($data)
 {
@@ -129,6 +150,8 @@ foreach ($ques as $q) {
 
 //Will get data from database if there are no errors
 if (count($errMsgs) === 0) {
+    //Checks/Creates attempts table before inserting data.
+    createTable($conn);
     //Goes through each question submitted
     while ($i < count($ques)) {
         $ans = [];
