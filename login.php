@@ -35,12 +35,12 @@ if (isset($_POST["login"])) {
 <html lang="en">
 
 <head>
-    <?php include_once("inc/header.inc"); ?>
+    <?php include_once("./header.inc"); ?>
     <title>Login Page</title>
 </head>
 
 <body class="quiz_background">
-    <?php include_once("inc/quiznav.inc"); ?>
+    <?php include_once("./quiznav.inc"); ?>
     <section>
         <div class="container py-5">
             <div class="row d-flex justify-content-center align-items-center">
@@ -78,7 +78,7 @@ if (isset($_POST["login"])) {
         </div>
     </section>
 
-    <?php include_once("inc/footer.inc"); ?>
+    <?php include_once("./footer.inc"); ?>
 </body>
 
 </html>

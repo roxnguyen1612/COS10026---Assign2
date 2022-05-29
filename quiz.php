@@ -6,12 +6,12 @@ session_start();
 <html lang="en">
 
 <head>
-  <?php include_once("inc/header.inc"); ?>
+  <?php include_once("./header.inc"); ?>
   <title>QUIZ</title>
 </head>
 
 <body class="quiz_background">
-  <?php include_once("inc/quiznav.inc"); ?>
+  <?php include_once("./quiznav.inc"); ?>
   <?php 
   $atmpt = $_SESSION["test_atmpt"];
   echo "<p>$atmpt</p>"; ?>
@@ -259,7 +259,7 @@ session_start();
   <?php
   // 
   ?>
-  <?php include_once("inc/footer.inc"); ?>
+  <?php include_once("./footer.inc"); ?>
 </body>
 
 </html>

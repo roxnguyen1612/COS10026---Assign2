@@ -123,13 +123,13 @@ function fetch_fifty($db, $tableName, $columns)
 <html lang="en">
 
 <head>
-    <?php include_once("inc/header.inc"); ?>
+    <?php include_once("./header.inc"); ?>
     <title>Table Display</title>
 </head>
 
 <body>
     <header class="quiz_background">
-        <?php include_once("inc/quiznav.inc"); ?>
+        <?php include_once("./quiznav.inc"); ?>
     </header>
     <section class="container w-100">
         <h1 class="pt-5">Attempts Table</h1>
@@ -191,7 +191,7 @@ function fetch_fifty($db, $tableName, $columns)
             </div>
         </div>
     </section>
-    <?php include_once("inc/footer.inc"); ?>
+    <?php include_once("./footer.inc"); ?>
 </body>
 
 </html>

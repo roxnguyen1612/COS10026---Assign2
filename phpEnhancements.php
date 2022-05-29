@@ -9,13 +9,13 @@ delete this after you read
 <html lang='en'>
 
 <head>
-  <?php include_once("inc/header.inc"); ?>
+  <?php include_once("./header.inc"); ?>
   <title>Enhancements PHP</title>
 </head>
 
 <body>
   <section id="eheader">
-    <?php include_once("inc/menu.inc"); ?>
+    <?php include_once("./menu.inc"); ?>
   </section>
 
   <section id="big-text">
@@ -220,9 +220,12 @@ delete this after you read
         <li>StackOverFlow, <em>Search MySQL Database with Multiple Fields in a Form</em>, <a href="https://stackoverflow.com/questions/9317836/search-mysql-database-with-multiple-fields-in-a-form/9317928#9317928">https://stackoverflow.com/questions/9317836/search-mysql-database-with-multiple-fields-in-a-form/9317928#9317928</a></li>
         <li>PHP, <em>Explanation: session_start()</em>, <a href="https://www.php.net/manual/en/function.session-start.php#:~:text=Description%20%C2%B6&text=session_start()%20creates%20a%20session,and%20read%20session%20save%20handlers.">https://www.php.net/manual/en/function.session-start.php#:~:text=Description%20%C2%B6&text=session_start()%20creates%20a%20session,and%20read%20session%20save%20handlers.</a></li>
         <li>StackOverFlow, <em>How to limit the number of login attempts in a login script?</em>, <a href="https://stackoverflow.com/questions/37120328/how-to-limit-the-number-of-login-attempts-in-a-login-script">https://stackoverflow.com/questions/37120328/how-to-limit-the-number-of-login-attempts-in-a-login-script</a></li>
-      </ol>
+        <li>GetBootstrap, <em>Form controls</em>, viewed 25 May 2022, <a href="https://getbootstrap.com/docs/5.1/forms/form-control/">https://getbootstrap.com/docs/5.1/forms/form-control/</a></li>
+        <li>GetBootstrap, <em>Validation</em>, viewed 20 May 2022, <a href="https://getbootstrap.com/docs/5.1/forms/validation/">https://getbootstrap.com/docs/5.1/forms/validation/</a></li>
+        <li>GetBootstrap, <em>Tables</em>, viewed 20 May 2022, <a href="https://getbootstrap.com/docs/5.0/content/tables/">https://getbootstrap.com/docs/5.0/content/tables/</a></li>
+        </ol>
     </div>
   </section>
 </body>
 
-<?php include_once("inc/footer.inc"); ?>
+<?php include_once("./footer.inc"); ?>

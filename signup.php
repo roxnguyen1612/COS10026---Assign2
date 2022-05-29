@@ -24,12 +24,12 @@ if (isset($_POST["submit"])) {
 <html lang="en">
 
 <head>
-  <?php include_once("inc/header.inc"); ?>
+  <?php include_once("./header.inc"); ?>
   <title>Sign Up Page</title>
 </head>
 
 <body class="quiz_background">
-  <?php include_once("inc/quiznav.inc"); ?>
+  <?php include_once("./quiznav.inc"); ?>
   <section>
     <div class="container py-5">
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -63,7 +63,7 @@ if (isset($_POST["submit"])) {
       </div>
     </div>
   </section>
-  <?php include_once("inc/footer.inc"); ?>
+  <?php include_once("./footer.inc"); ?>
 </body>
 
 </html>

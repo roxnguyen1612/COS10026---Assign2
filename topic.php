@@ -2,12 +2,12 @@
 <html lang='en'>
 
 <head>
-  <?php include_once("inc/header.inc"); ?>
+  <?php include_once("./header.inc"); ?>
   <title>MP3 Topic</title>
 </head>
 <body>
   <header id="eheader">
-    <?php include_once("inc/menu.inc"); ?>
+    <?php include_once("./menu.inc"); ?>
 </header>
 
   <section id="big-text">
@@ -144,7 +144,7 @@
     <span></span><a href="quiz.php">TEST YOUR KNOWLEDGE</a>
   </div>
   </div>
-  <?php include_once("inc/footer.inc") ?>
+  <?php include_once("./footer.inc") ?>
 </body>
 
 </html>

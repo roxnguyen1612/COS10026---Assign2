@@ -47,13 +47,13 @@ if (isset($_GET["logout"])) {
 <html lang="en">
 
 <head>
-  <?php include_once("inc/header.inc"); ?>
+  <?php include_once("./header.inc"); ?>
   <title>Supervisor Page</title>
 </head>
 
 <body class="quiz_background">
   <header class="quiz_background">
-    <?php include_once("inc/quiznav.inc"); ?>
+    <?php include_once("./quiznav.inc"); ?>
   </header>
 
   <section class="p-5 m-5 bg-light">
@@ -141,7 +141,7 @@ if (isset($_GET["logout"])) {
       </div>
     </div>
   </section>
-  <?php include_once("inc/footer.inc"); ?>
+  <?php include_once("./footer.inc"); ?>
 </body>
 
 </html>

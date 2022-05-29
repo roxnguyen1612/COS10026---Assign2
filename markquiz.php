@@ -183,14 +183,14 @@ if (count($errMsgs) === 0) {
 <html lang="en">
 
 <head>
-    <?php include_once("inc/header.inc"); ?>
+    <?php include_once("./header.inc"); ?>
     <link rel="stylesheet" href="styles/markquiz.css">
     <title>Mark Quiz</title>
 </head>
 
 <body class="quiz_background">
     <header>
-        <?php include_once("inc/quiznav.inc"); ?>
+        <?php include_once("./quiznav.inc"); ?>
     </header>
     <div class="content">
         <div>
@@ -227,7 +227,7 @@ if (count($errMsgs) === 0) {
         } ?>
     </div>
     </div>
-    <?php include_once("inc/footer.inc"); ?>
+    <?php include_once("./footer.inc"); ?>
 </body>
 
 </html>
