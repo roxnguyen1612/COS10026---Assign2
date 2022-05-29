@@ -1,11 +1,8 @@
-<head>
     <meta charset="UTF-8" />
     <meta name="description" content="Group Assignment 1 - index.html" />
     <meta name="keywords" content="HTML, CSS" />
     <meta name="author" content="webify_group" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MP3 PROJECT</title>
-    <link rel="stylesheet" href="styles/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
@@ -20,4 +17,3 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="styles/style.css" />
-  </head>

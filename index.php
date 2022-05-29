@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
- <?php include_once("inc/header.inc");?>
+  <head>
+    <?php include_once("inc/header.inc");?>
+    <title>Index Page</title>
+  </head>
 
   <body>
     <div class="header">

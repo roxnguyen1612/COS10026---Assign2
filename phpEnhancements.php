@@ -8,7 +8,10 @@ delete this after you read
 <!DOCTYPE html>
 <html lang='en'>
 
-<?php include_once("inc/header.inc"); ?>
+<head>
+  <?php include_once("inc/header.inc"); ?>
+  <title>Enhancements PHP</title>
+</head>
 
 <body>
   <section id="eheader">

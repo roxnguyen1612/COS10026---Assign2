@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang='en'>
 
-<?php include_once("inc/header.inc"); ?>
-
+<head>
+  <?php include_once("inc/header.inc"); ?>
+  <title>MP3 Topic</title>
+</head>
 <body>
   <section id="eheader">
     <?php include_once("inc/menu.inc"); ?>
