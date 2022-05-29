@@ -1,5 +1,6 @@
-<!-- https://codingstatus.com/display-data-in-html-table-using-php-mysql/ -->
-<!-- https://stackoverflow.com/a/9317928 -->
+<!-- References:
+https://codingstatus.com/display-data-in-html-table-using-php-mysql/,
+https://stackoverflow.com/a/9317928 -->
 <?php
 include_once("config.php");
 $tableName = "attempts";
