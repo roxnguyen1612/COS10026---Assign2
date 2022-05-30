@@ -9,7 +9,11 @@ session_start();
 
 <?php
 //Number of login attempts
-$atmpt = 0;
+if (isset($_SESSION["login_atmpt"])) {
+    $atmpt = $_SESSION["login_atmpt"];
+} else {
+    $atmpt = 0;
+}
 
 // check if form is submitted
 if (isset($_POST["login"])) {
@@ -26,6 +30,7 @@ if (isset($_POST["login"])) {
             header("location: manage.php");
         } else {
             $atmpt++;
+            $_SESSION["login_atmpt"] = $atmpt;
         };
     };
 };
