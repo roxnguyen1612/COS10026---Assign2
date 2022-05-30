@@ -23,7 +23,6 @@
                   >103844094 - Tashahud</a
                 >
               </li>
-              </li>
               <li>
                 <a href="mailto:103793057@student.swin.edu.au"
                   >103793057 - Ahmed Daiyan</a

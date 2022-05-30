@@ -1,10 +1,12 @@
-<!-- https://codingstatus.com/display-data-in-html-table-using-php-mysql/ -->
-<!-- https://stackoverflow.com/a/9317928 -->
+<!-- References:
+https://codingstatus.com/display-data-in-html-table-using-php-mysql/,
+https://stackoverflow.com/a/9317928 -->
 <?php
 include_once("config.php");
 $tableName = "attempts";
 $columns = ['date_time', 'studentID', 'fname', 'lname', 'attempt', 'score', 'dob'];
 
+//Checks which button is pressed on the previous page and gets the relevant information from the database.
 switch ($_REQUEST['data']) {
     case 'listall':
         $fetchData = fetch_data($conn, $tableName, $columns);
@@ -22,6 +24,7 @@ switch ($_REQUEST['data']) {
         break;
 }
 
+//Fetches all row/columns from the database from $tableName.
 function fetch_data($db, $tableName, $columns)
 {
     $columnName = implode(", ", $columns);
@@ -41,6 +44,7 @@ function fetch_data($db, $tableName, $columns)
     return $data;
 }
 
+//fetches rows where where student ID, first name or last name match.
 function fetch_student($db, $tableName, $columns)
 {
     $fields = array('studentID', 'fname', 'lname');
@@ -74,10 +78,11 @@ function fetch_student($db, $tableName, $columns)
     return $data;
 }
 
+//Returns the attempts where a student got 100% on their first attempt.
 function fetch_onehundred($db, $tableName, $columns)
 {
     $columnName = implode(", ", $columns);
-    $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE score = 8";
+    $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE score = 8 AND attempt = 1";
     $result = $db->query($query);
 
     if ($result) {
@@ -93,10 +98,11 @@ function fetch_onehundred($db, $tableName, $columns)
     return $data;
 }
 
+//Returns the attempts where a student got less than 50% on their second attempt
 function fetch_fifty($db, $tableName, $columns)
 {
     $columnName = implode(", ", $columns);
-    $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE score < 5";
+    $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE score < 5 AND attempt = 2";
     $result = $db->query($query);
 
     if ($result) {
@@ -117,26 +123,23 @@ function fetch_fifty($db, $tableName, $columns)
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styles/style.css" />
+    <?php include_once("./header.inc"); ?>
     <title>Table Display</title>
 </head>
 
 <body>
     <header class="quiz_background">
-        <?php include_once("inc/quiznav.inc"); ?>
+        <?php include_once("./quiznav.inc"); ?>
     </header>
     <section class="container w-100">
+        <h1 class="pt-5">Attempts Table</h1>
         <div class="row mt-5">
             <div class="col-auto">
+                <!-- Table-responsive allows for horizontal scrolling -->
                 <div class="table-responsive">
+                    <!-- table-hover allows for highlighting row on hover -->
                     <table class="table table-hover">
+                        <!-- table-success makes the head green -->
                         <thead class="table-success">
                             <tr>
                                 <th>Time</th>
@@ -150,6 +153,7 @@ function fetch_fifty($db, $tableName, $columns)
                         </thead>
                         <tbody>
                             <?php
+                            //Displays the returned information in a html table
                             if (is_array($fetchData)) {
                                 foreach ($fetchData as $data) {
                             ?>
@@ -167,7 +171,10 @@ function fetch_fifty($db, $tableName, $columns)
                             } else { ?>
                                 <tr>
                                     <td colspan="8">
-                                        <?php echo $fetchData; ?>
+                                        <?php
+                                        //If no data is found, it will echo "No Data found"
+                                        echo $fetchData;
+                                        ?>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -184,9 +191,7 @@ function fetch_fifty($db, $tableName, $columns)
             </div>
         </div>
     </section>
-    <footer>
-        <?php include_once("inc/footer.inc"); ?>
-    </footer>
+    <?php include_once("./footer.inc"); ?>
 </body>
 
 </html>

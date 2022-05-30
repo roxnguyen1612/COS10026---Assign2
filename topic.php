@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang='en'>
 
-<?php include_once("inc/header.inc"); ?>
-
+<head>
+  <?php include_once("./header.inc"); ?>
+  <title>MP3 Topic</title>
+</head>
 <body>
-  <section id="eheader">
-    <?php include_once("inc/menu.inc"); ?>
-  </section>
+  <header id="eheader">
+    <?php include_once("./menu.inc"); ?>
+</header>
 
   <section id="big-text">
     <div class="big-text tcontainer">
@@ -59,11 +61,11 @@
       <figure>
         <img src="./Images/karlheinz.jpg" class="Karlheinz" alt="Karlheinz Brandenburg" />
 
-        <figcaption><em>Fig.1 - Karlheinz Brandenburg.</em></figcaption>
+        <figcaption>Fig.1 - Karlheinz Brandenburg.</figcaption>
       </figure>
     </div>
     <div class="lb">
-      <img width='5%' src="./Images/lightbulb.png" alt="light bulb">
+      <img src="./Images/lightbulb.png" alt="light bulb">
     </div>
     <div id="q&a">
       <h4>Q&A SECTION:</h4>
@@ -125,14 +127,14 @@
   <div class="ref">
     <h3>Reference:</h3>
     <ol>
-      <li>TechTarget, May 2006, <em>DEFINITION - MP3 (MPEG-1 Audio Layer-3)</em>, WhatIs, available from <a href="https://whatis.techtarget.com/definition/MP3-MPEG-1-Audio-Layer-3#:~:text=MP3%20(MPEG%2D1%20Audio%20Layer%2D3)%20is%20a,quality%20when%20it%20is%20played.">https://whatis.techtarget.com/definition/MP3-MPEG-1-Audio-Layer.</a>
+      <li>TechTarget, May 2006, DEFINITION - MP3 (MPEG-1 Audio Layer-3), WhatIs, available from <a href="https://whatis.techtarget.com/definition/MP3-MPEG-1-Audio-Layer-3#:~:text=MP3%20(MPEG%2D1%20Audio%20Layer%2D3)%20is%20a,quality%20when%20it%20is%20played.">https://whatis.techtarget.com/definition/MP3-MPEG-1-Audio-Layer.</a>
       </li>
-      <li>Brain M., May 2021, <em>How MP3 Files Work</em>, HowStuffWorks, available from <a href="https://computer.howstuffworks.com/mp3.htm">https://computer.howstuffworks.com/mp3.htm</a>
+      <li>Brain M., May 2021, How MP3 Files Work, HowStuffWorks, available from <a href="https://computer.howstuffworks.com/mp3.htm">https://computer.howstuffworks.com/mp3.htm</a>
       </li>
-      <li>Bellis M., August 2019, <em>The History of MP3 Technology</em>, ThoughtCo., available from
+      <li>Bellis M., August 2019, The History of MP3 Technology, ThoughtCo., available from
         <a href="https://www.thoughtco.com/history-of-mp4-1992132">https://www.thoughtco.com/history-of-mp4-1992132</a>
       </li>
-      <li>Velasco C. , May 2017, <em>The MP3 Is Dead: Here's A Brief History Of MP3</em>
+      <li>Velasco C. , May 2017, The MP3 Is Dead: Here's A Brief History Of MP3
         , Tech Times, available from <a href="https://www.techtimes.com/articles/207213/20170513/the-mp3-is-dead-heres-a-brief-history-of-mp3.htm">https://www.techtimes.com/articles/207213/20170513/the-mp3-is-dead-heres-a-brief-history-of-mp3.htm</a>
       </li>
     </ol>
@@ -142,7 +144,7 @@
     <span></span><a href="quiz.php">TEST YOUR KNOWLEDGE</a>
   </div>
   </div>
-  <?php include_once("inc/footer.inc") ?>
+  <?php include_once("./footer.inc") ?>
 </body>
 
 </html>

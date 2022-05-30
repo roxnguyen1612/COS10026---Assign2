@@ -1,7 +1,7 @@
     <nav>
         <a href="index.php"
           ><img src="./Images/logo.png" alt="Webify logo"
-        />
+        /></a>
       <div class="nav-links">
         <ul>
           <li><a href="topic.php">TOPIC</a></li>

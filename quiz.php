@@ -6,24 +6,17 @@ session_start();
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="description" content="Group Assignment 1 - index.html" />
-  <meta name="keywords" content="HTML, CSS" />
-  <meta name="author" content="webify_group" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MP3 PROJECT</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="styles/style.css" />
+  <?php include_once("./header.inc"); ?>
+  <title>QUIZ</title>
 </head>
 
 <body class="quiz_background">
-  <?php include_once("inc/quiznav.inc"); ?>
+  <?php include_once("./quiznav.inc"); ?>
   <?php 
   $atmpt = $_SESSION["test_atmpt"];
   echo "<p>$atmpt</p>"; ?>
+  <!-- novalidate has been set to demonstrate server side validation -->
+  <!-- Form for quiz -->
   <form method="post" action="markquiz.php" class="was-validated" novalidate>
     <fieldset>
       <legend>
@@ -56,7 +49,7 @@ session_start();
       </legend>
       <div class="form-floating mb-3 mt-3">
         <input type="text" name="question01" value="" id="question01" minlength="4" maxlength="4" pattern="^\d{4}$" required="required" class="form-control" placeholder="What year was MP3 published?" />
-        <label for="textQuestion">What year was MP3 published?</label>
+        <label for="question01">What year was MP3 published?</label>
         <div class="invalid-feedback">Please fill out.</div>
         <img src="./Images/mp3.png" class="mp3" alt="MP3 Device" />
       </div>
@@ -214,7 +207,7 @@ session_start();
         <p class="question_text">
           Which audio file format is most common for streaming?
         </p>
-        <textarea placeholder="Write your answer here..." id="q7" name="question07" value="" rows="4" cols="40" class="form-control" required="required"></textarea>
+        <textarea placeholder="Write your answer here..." id="q7" name="question07" rows="4" cols="40" class="form-control" required="required"></textarea>
         <div class="invalid-feedback">Please fill out.</div>
       </div>
       <img src="./Images/audiofileformat.png" class="audio" alt="Audio File Format" />
@@ -254,6 +247,7 @@ session_start();
 
     <div>
       <?php 
+      //If the user has attempted the quiz more than 2 times, disable the button
       if ($_SESSION["test_atmpt"] < 2) {?>
           <input id="submit" name="submit" type="submit" value="Submit" class="btn btn-success btn-lg" />
           <?php } else { ?>
@@ -265,7 +259,7 @@ session_start();
   <?php
   // 
   ?>
-  <?php include_once("inc/footer.inc"); ?>
+  <?php include_once("./footer.inc"); ?>
 </body>
 
 </html>
