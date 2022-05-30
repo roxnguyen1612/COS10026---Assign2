@@ -127,7 +127,6 @@ function printErrors($errMsgs)
         <div class='btn-group w-25'>
         <a class=\"btn btn-primary btn-lg shadow-sm\" href=\"quiz.php\">Go Back</a>
         </div>";
-        $test_atmpt -= 1;
         return true;
     }
     return false;
