@@ -141,7 +141,7 @@
   </div>
   <div class="button-text">
   <div class="learn-btn2">
-    <span></span><a href="quiz.php">TEST YOUR KNOWLEDGE</a>
+    <span></span><a href="quiz.php" class="btn btn-success btn-lg">TEST YOUR KNOWLEDGE</a>
   </div>
   </div>
   <?php include_once("./footer.inc") ?>
